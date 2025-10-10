@@ -1,0 +1,41 @@
+
+/*
+ * Header scss File
+*/
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-radius: 20px;
+    background: #FFF;
+    box-shadow: 0 0 120px 0 rgba(71, 85, 105, 0.07);
+    margin: 16px 0;
+}
+
+.header-links-wrapper {
+  display: flex;
+
+  > a {
+      padding: 8px 12px 16px 12px;
+      margin: 0 4px;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      color: #1E293B;
+      text-decoration: none;
+  }
+
+	@media (max-width: 640px) {
+		display: none;
+  }
+}
+
+.avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}

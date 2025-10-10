@@ -1,0 +1,70 @@
+$primary: #002FFF;
+$primaryHover: #0028D9;
+$primaryFocus: #0021B5;
+$buttonTextColor: #fff;
+$primaryDisabled: #64748B;
+
+$secondary: #002FFF;
+$secondaryHover: #0028D9;
+$secondaryFocus: #0021B5;
+$secondaryTextColor: #fff;
+$secondaryDisabled: #64748B;
+
+.btn {
+  display: inline-flex;
+  height: 48px;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 32px;
+  border: 1px solid transparent;
+  color: $buttonTextColor;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+
+  &-primary {
+    background-color: $primary;
+
+    &:hover:not(:disabled) {
+      background-color: $primaryHover;
+      cursor: pointer;
+    }
+
+    &:focus {
+      background-color: $primaryFocus;
+    }
+
+    &:disabled {
+      background-color: $primaryDisabled;
+    }
+  }
+
+  &-secondary {
+      background-color: transparent;
+      color: $secondary;
+      border-color: $secondary;
+
+
+    &:hover:not(:disabled) {
+      color: $secondaryHover;
+      border-color: $secondaryHover;
+      cursor: pointer;
+    }
+
+    &:focus {
+      color: $secondaryFocus;
+      border-color: $secondaryFocus;
+    }
+
+    &:disabled {
+      color: $secondaryDisabled;
+      border-color: $secondaryDisabled;
+    }
+  }
+}

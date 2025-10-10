@@ -1,0 +1,13 @@
+# ReactJS
+ReactJS/node_modules
+ReactJS/package-lock.json
+
+# NodeJS
+NodeJS/node_modules
+NodeJS/package-lock.json
+
+# dotenv environment variables file
+.env
+
+# Optional npm cache directory
+.npm

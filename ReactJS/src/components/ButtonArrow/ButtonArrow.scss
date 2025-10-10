@@ -1,0 +1,16 @@
+$buttonTextColor: #002FFF;
+
+.btn-arrow {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.btn-arrow-text {
+  color: $buttonTextColor;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  font-family: Inter;
+}
