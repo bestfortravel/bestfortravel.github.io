@@ -147,6 +147,7 @@
   width: calc(100% - 32px);
 
   @media (max-width: 991px) {
+    height: unset;
     left: 16px;
     top: 240px;
     gap: 16px;
