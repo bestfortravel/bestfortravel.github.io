@@ -9,21 +9,21 @@ function template() {
           <header>
             <div className="header-inner">
               <div className="logo-wrapper">
-                <Link className="home" to='/feed'>
+                <Link className="header-link" to='/feed'>
                   <img src="./icons/LogoFull.svg" alt="Feed"/>
                 </Link>
               </div>
               <div className="header-links-wrapper">
-                <Link className="home" to='/notFound'>
+                <Link className="header-link" to='/notFound'>
                   Map
                 </Link>
-                <Link className="home" to='/feed'>
+                <Link className="header-link" to='/feed'>
                   Posts
                 </Link>
-                <Link className="home" to='/'>
+                <Link className="header-link" to='#'>
                   Next Trip
                 </Link>
-                <Link className="home" to='/'>
+                <Link className="header-link" to='#'>
                   Notes
                 </Link>
               </div>
