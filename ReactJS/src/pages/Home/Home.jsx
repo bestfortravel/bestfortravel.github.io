@@ -59,25 +59,36 @@ function Home() {
 
     if (!validateForm()) return;
 
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+    // Hardcoded credentials
+    const VALID_EMAIL = "test@email.com";
+    const VALID_PASSWORD = "MyPassword";
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('token', data.token);
-        navigate('/profile');
-      } else {
-        const err = await response.json();
-        setLoginError(err.message);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setLoginError("Server not reachable");
+    if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+      localStorage.setItem("token", "fake-jwt-token");
+      window.location.href = "/profile";
+    } else {
+      setLoginError("Invalid email or password");
     }
+
+    // try {
+    //   const response = await fetch('/api/login', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ email, password }),
+    //   });
+
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     localStorage.setItem('token', data.token);
+    //     navigate('/profile');
+    //   } else {
+    //     const err = await response.json();
+    //     setLoginError(err.message);
+    //   }
+    // } catch (error) {
+    //   console.error("Error:", error);
+    //   setLoginError("Server not reachable");
+    // }
   };
 
   const handleGoogleSignIn = () => {
