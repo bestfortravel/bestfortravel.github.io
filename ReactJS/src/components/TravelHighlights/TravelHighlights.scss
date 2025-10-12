@@ -105,10 +105,12 @@
   flex: 1;
   height: 340px;
   overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 
   @media (max-width: 991px) {
     gap: 16px;
-    flex-direction: column;
     height: auto;
     gap: 20px;
     width: 100%;
@@ -123,7 +125,6 @@
   overflow: hidden;
 
   @media (max-width: 991px) {
-    width: 100%;
     max-width: 450px;
   }
 
