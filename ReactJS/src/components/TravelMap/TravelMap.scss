@@ -132,6 +132,21 @@
 			}
 		}
 	}
+
+	.tooltip-link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: url('../../../public/icons/arrow-top-right.svg');
+    background-size: 11px 11px;
+    background-position: center;
+    background-repeat: no-repeat;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		right: 14px;
+		bottom: 30px;
+	}
 }
 
 @keyframes fadeIn {

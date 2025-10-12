@@ -26,6 +26,11 @@ body {
   }
 }
 
+.wrapper-full-width {
+  max-width: 1200px;
+  margin: 16px auto;
+}
+
 h1, h2, h3, h4, h5, h6, p, a, span, div {
   font-family: Inter;
 }
