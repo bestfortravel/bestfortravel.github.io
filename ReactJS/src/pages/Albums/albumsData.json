@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "title": "La Dolce Vita Moments",
+    "place": "Italy",
+    "date": "13.05.2025",
+    "img": "./images/albums/italy.jpg",
+    "coords": [12.5, 41.9],
+    "category": "Countries"
+  },
+  {
+    "id": 2,
+    "title": "My French Escapes",
+    "place": "France",
+    "date": "13.05.2025",
+    "img": "./images/albums/france.jpg",
+    "coords": [2.35, 48.85],
+    "category": "Countries"
+  },
+  {
+    "id": 3,
+    "title": "Colors of Japan",
+    "place": "Japan",
+    "date": "13.05.2025",
+    "img": "./images/albums/japan.jpg",
+    "coords": [139.69, 35.68],
+    "category": "Countries"
+  },
+  {
+    "id": 4,
+    "title": "Paris in Little Moments",
+    "place": "Paris",
+    "date": "13.05.2025",
+    "img": "./images/albums/paris.jpg",
+    "coords": [2.35, 48.86],
+    "category": "Cities"
+  },
+  {
+    "id": 5,
+    "title": "My Riviera Escape",
+    "place": "Nice",
+    "date": "13.05.2025",
+    "img": "./images/albums/nice.jpg",
+    "coords": [7.26, 43.7],
+    "category": "Cities"
+  },
+  {
+    "id": 6,
+    "title": "Quiet Mornings in Kyoto",
+    "place": "Kyoto",
+    "date": "13.05.2025",
+    "img": "./images/albums/kyoto.jpg",
+    "coords": [135.77, 35.01],
+    "category": "Cities"
+  },
+  {
+    "id": 7,
+    "title": "Flavors I Still Think About",
+    "place": "Paris",
+    "date": "13.05.2025",
+    "img": "./images/albums/food-paris.jpg",
+    "coords": [2.35, 48.86],
+    "category": "Food"
+  },
+  {
+    "id": 8,
+    "title": "Where I Ate & Loved It",
+    "place": "Nice",
+    "date": "13.05.2025",
+    "img": "./images/albums/food-nice.jpg",
+    "coords": [7.26, 43.7],
+    "category": "Food"
+  },
+  {
+    "id": 9,
+    "title": "Taste of Kyoto Streets",
+    "place": "Kyoto",
+    "date": "13.05.2025",
+    "img": "./images/albums/food-kyoto.jpg",
+    "coords": [135.77, 35.01],
+    "category": "Food"
+  },
+  {
+    "id": 10,
+    "title": "Stays That Became Part of the Journey",
+    "place": "Paris",
+    "date": "13.05.2025",
+    "img": "./images/albums/stay-paris.jpg",
+    "coords": [2.34, 48.85],
+    "category": "Stays"
+  },
+  {
+    "id": 11,
+    "title": "Rooms With a View (and a Story)",
+    "place": "Amsterdam",
+    "date": "13.05.2025",
+    "img": "./images/albums/stay-amsterdam.jpg",
+    "coords": [4.9, 52.37],
+    "category": "Stays"
+  },
+  {
+    "id": 12,
+    "title": "Lakeside Serenity",
+    "place": "Zurich",
+    "date": "13.05.2025",
+    "img": "./images/albums/stay-zurich.jpg",
+    "coords": [8.54, 47.37],
+    "category": "Stays"
+  },
+  {
+    "id": 13,
+    "title": "Louvre Museum",
+    "place": "Paris",
+    "date": "13.05.2025",
+    "img": "./images/albums/louvre.jpg",
+    "coords": [2.3364, 48.8609],
+    "category": "Sights"
+  },
+  {
+    "id": 14,
+    "title": "La Sagrada Familia",
+    "place": "Barcelona",
+    "date": "13.05.2025",
+    "img": "./images/albums/sagrada.jpg",
+    "coords": [2.1744, 41.4036],
+    "category": "Sights"
+  },
+  {
+    "id": 15,
+    "title": "Duomo di Milano",
+    "place": "Milan",
+    "date": "13.05.2025",
+    "img": "./images/albums/milan.jpg",
+    "coords": [9.19, 45.46],
+    "category": "Sights"
+  },
+  {
+    "id": 16,
+    "title": "Cycling through Amsterdam",
+    "place": "Amsterdam",
+    "date": "13.05.2025",
+    "img": "./images/albums/amsterdam-bike.jpg",
+    "coords": [4.9, 52.37],
+    "category": "Activities"
+  },
+  {
+    "id": 17,
+    "title": "Hiking the Alps",
+    "place": "Switzerland",
+    "date": "13.05.2025",
+    "img": "./images/albums/alps-hike.jpg",
+    "coords": [8.23, 46.8],
+    "category": "Activities"
+  },
+  {
+    "id": 18,
+    "title": "Surfing in Portugal",
+    "place": "Lisbon",
+    "date": "13.05.2025",
+    "img": "./images/albums/portugal-surf.jpg",
+    "coords": [-9.14, 38.72],
+    "category": "Activities"
+  }
+]

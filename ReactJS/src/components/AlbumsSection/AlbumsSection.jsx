@@ -1,12 +1,12 @@
-import "./Albums.scss";
+import "./AlbumsSection.scss";
 import React from "react";
 
-function Albums() {
+function AlbumsSection() {
   return (
-    <div className="wrapper albums-wrapper">
-      <div className="albums-container">
-        <div className="albums-header">
-          <h2 className="albums-title">Albums</h2>
+    <div className="wrapper albums-section-wrapper">
+      <div className="albums-section-container">
+        <div className="albums-section-header">
+          <h2 className="albums-section-title">Albums</h2>
           <div className="view-all-button">
             <span className="button-text">Check all posts</span>
             <div className="arrow-icon">
@@ -17,14 +17,14 @@ function Albums() {
           </div>
         </div>
 
-        <div className="albums-grid">
-          <div className="album-card large-card">
+        <div className="albums-section-grid">
+          <div className="album-section-card large-card">
             <img
               src="./images/Australia.png"
               alt="Australia travel album"
-              className="album-image"
+              className="album-section-image"
             />
-            <div className="album-overlay">
+            <div className="album-section-overlay">
               <h3 className="destination-title">Australia</h3>
               <div className="posts-badge">
                 <span className="posts-count">12 posts</span>
@@ -32,14 +32,14 @@ function Albums() {
             </div>
           </div>
 
-          <div className="album-card">
+          <div className="album-section-card">
             <img
               src="./images/FaroeIslands.png"
               alt="Faroe Islands"
-              className="album-image"
+              className="album-section-image"
             />
 
-            <div className="album-overlay bottom-overlay">
+            <div className="album-section-overlay bottom-overlay">
               <h3 className="destination-title">Faroe Islands</h3>
               <div className="posts-badge">
                 <span className="posts-count">12 posts</span>
@@ -47,14 +47,14 @@ function Albums() {
             </div>
           </div>
 
-          <div className="album-card">
+          <div className="album-section-card">
             <img
               src="./images/Japan.png"
               alt="Japan travel album"
-              className="album-image"
+              className="album-section-image"
             />
 
-            <div className="album-overlay bottom-overlay">
+            <div className="album-section-overlay bottom-overlay">
               <h3 className="destination-title">Japan</h3>
               <div className="posts-badge">
                 <span className="posts-count">20 posts</span>
@@ -67,4 +67,4 @@ function Albums() {
   );
 }
 
-export default Albums;
+export default AlbumsSection;
