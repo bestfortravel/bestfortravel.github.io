@@ -78,6 +78,7 @@
   gap: 8px;
   position: relative;
   cursor: pointer;
+  text-decoration: none;
 
   @media (max-width: 991px) {
     align-self: flex-end;
@@ -88,6 +89,14 @@
   color: #002FFF;
   position: relative;
   font: 400 14px/20px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+
+  &:hover {
+    color: #0028D9;
+  }
+
+  &:focus {
+    color: #0021B5;
+  }
 }
 
 .arrow-right-icon {

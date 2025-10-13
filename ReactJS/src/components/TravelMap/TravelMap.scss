@@ -17,8 +17,8 @@
 
 .photo-marker {
 	cursor: pointer;
-  width: 60px;
-  height: 60px;
+  width: 41px;
+  height: 41px;
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -138,9 +138,9 @@
 		align-items: center;
 		justify-content: center;
 		background: url('../../../public/icons/arrow-top-right.svg');
-    background-size: 11px 11px;
-    background-position: center;
-    background-repeat: no-repeat;
+		background-size: 11px 11px;
+		background-position: center;
+		background-repeat: no-repeat;
 		width: 20px;
 		height: 20px;
 		position: absolute;

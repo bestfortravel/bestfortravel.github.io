@@ -159,7 +159,7 @@ const TravelMap = () => {
         el.addEventListener('mouseenter', () => {
           const pixel = map.current.project(point.coords);
           tooltip.style.left = `${pixel.x - 125}px`;
-          tooltip.style.top = `${pixel.y - 250}px`;
+          tooltip.style.top = `${pixel.y - 235}px`;
           tooltip.classList.add('visible');
         });
         el.addEventListener('mouseleave', (e) => {

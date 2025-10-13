@@ -27,8 +27,16 @@ body {
 }
 
 .wrapper-full-width {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 16px auto;
+
+  @media (max-width: 1300px) {
+    max-width: 1032px;
+  }
+
+  @media (max-width: 1030px) {
+    margin: 16px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6, p, a, span, div {

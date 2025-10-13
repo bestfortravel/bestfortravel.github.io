@@ -1,0 +1,28 @@
+.badge {
+  display: flex;
+  padding: 4px 8px;
+  align-items: center;
+  gap: 0;
+  border-radius: 8px;
+  background: #F7F7F8;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+
+  .badge-wrap {
+    display: flex;
+    padding: 0 4px;
+    align-items: flex-start;
+    gap: 0;
+    border-radius: 0;
+
+    .badge-label {
+      color: #3F3F50;
+      font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+    }
+  }
+}

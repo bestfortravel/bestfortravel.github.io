@@ -55,6 +55,7 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  text-decoration: none;
 
   .button-text {
     color: #002FFF;
@@ -62,6 +63,14 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+
+    &:hover {
+      color: #0028D9;
+    }
+
+    &:focus {
+      color: #0021B5;
+    }
 
     @media (max-width: 640px) {
       font-size: 13px;

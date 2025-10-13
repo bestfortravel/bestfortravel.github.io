@@ -1,0 +1,100 @@
+.album-card {
+  overflow: hidden;
+  background: #fff;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+	position: relative;
+	max-width: 210px;
+	padding-bottom: 2px;
+
+	@media (max-width: 1300px) {
+		max-width: unset;
+	}
+
+  &.active {
+    border: 2px solid #718af9;
+    transform: translateY(-2px);
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .album-image {
+    position: relative;
+    height: 140px;
+    align-self: stretch;
+    aspect-ratio: 211 / 140;
+    border-radius: 24px;
+
+		@media (max-width: 1300px) {
+			height: 165px;
+		}
+
+		@media (max-width: 1030px) {
+			height: 150px;
+		}
+
+		@media (max-width: 950px) {
+			height: 140px;
+		}
+
+		@media (max-width: 900px) {
+			height: 200px;
+		}
+
+		@media (max-width: 768px) {
+			height: 160px;
+		}
+
+
+    .album-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #1e293b;
+    }
+  }
+}
+
+.album-title {
+	color: #1E293B;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+	margin-top: 12px;
+	margin-bottom: 8px;
+}
+
+.album-date {
+	overflow: hidden;
+	color:#475569;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 22px;
+	margin: 0;
+	padding-left: 22px;
+	position: relative;
+
+	&::before {
+		position: absolute;
+		content: '';
+		width: 16px;
+		height: 16px;
+		background-image: url('../../../public/icons/calendar.svg');
+		background-repeat: no-repeat;
+		background-position: center;
+		left: 0;
+		top: 50%;
+		transform: translateY(calc(-50% - 1px));
+	}
+}

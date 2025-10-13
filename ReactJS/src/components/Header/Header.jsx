@@ -1,6 +1,6 @@
 import './Header.scss'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default function Header({ fullWidth = false }) {
   return (
@@ -8,22 +8,42 @@ export default function Header({ fullWidth = false }) {
       <header>
         <div className='header-inner'>
           <div className='logo-wrapper'>
-            <Link className='header-link' to='/feed'>
-              <img src='./icons/LogoFull.svg' alt='Feed' />
-            </Link>
+            <NavLink className='header-link' to='/feed'>
+              <img src='/icons/LogoFull.svg' alt='Feed' />
+            </NavLink>
           </div>
 
           <div className='header-links-wrapper'>
-            <Link className='header-link' to='/map'>Map</Link>
-            <Link className='header-link' to='/feed'>Posts</Link>
-            <Link className='header-link' to='#'>Next Trip</Link>
-            <Link className='header-link' to='#'>Notes</Link>
+            {/* <NavLink
+              to='/map'
+              className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
+            >
+              Map
+            </NavLink> */}
+            <NavLink
+              to='/feed'
+              className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
+            >
+              Posts
+            </NavLink>
+            <NavLink
+              to='/albums'
+              className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
+            >
+              Albums
+            </NavLink>
+            <NavLink
+              to='/profile'
+              className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
+            >
+              Profile
+            </NavLink>
           </div>
 
           <div className='avatar-wrapper'>
-            <Link className='profile' to='/profile'>
-              <img className='avatar-small' src='./images/avatar.png' alt='Home' />
-            </Link>
+            <NavLink className='profile' to='/profile'>
+              <img className='avatar-small' src='/images/avatar.png' alt='Home' />
+            </NavLink>
           </div>
         </div>
       </header>

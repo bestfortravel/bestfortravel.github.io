@@ -33,6 +33,25 @@
       text-decoration: none;
   }
 
+  .header-link {
+    position: relative;
+
+    &.active {
+        &::before {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        aspect-ratio: 1/1;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 7px;
+        background-color: #002FFF;
+        border-radius: 100%;
+      }
+    }
+  }
+
 	@media (max-width: 640px) {
       > a {
         padding: 0;

@@ -116,7 +116,7 @@ function Home() {
     <div className="auth-container">
       <div className="auth-card">
         <div className="auth-logo">
-          <img src="./icons/Logo.svg" alt="Feed" />
+          <img src="/icons/Logo.svg" alt="Feed" />
           <p className="auth-title">Start Your Journey</p>
           <p className="auth-subtitle">Create a free account or log in</p>
         </div>

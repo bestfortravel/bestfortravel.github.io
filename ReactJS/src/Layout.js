@@ -8,7 +8,9 @@ function Layout() {
   const fullWidthRoutes = ['/map', '/albums']
 
   // check if the current route matches one of them
-  const isFullWidth = fullWidthRoutes.includes(location.pathname)
+  const isFullWidth = fullWidthRoutes.some(route =>
+    location.pathname.startsWith(route)
+  );
 
   return (
     <>

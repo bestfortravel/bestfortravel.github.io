@@ -4,7 +4,7 @@
     "title": "La Dolce Vita Moments",
     "place": "Italy",
     "date": "13.05.2025",
-    "img": "./images/albums/italy.jpg",
+    "img": "/images/albums/italy.jpg",
     "coords": [12.5, 41.9],
     "category": "Countries"
   },
@@ -13,7 +13,7 @@
     "title": "My French Escapes",
     "place": "France",
     "date": "13.05.2025",
-    "img": "./images/albums/france.jpg",
+    "img": "/images/albums/france.jpg",
     "coords": [2.35, 48.85],
     "category": "Countries"
   },
@@ -22,7 +22,7 @@
     "title": "Colors of Japan",
     "place": "Japan",
     "date": "13.05.2025",
-    "img": "./images/albums/japan.jpg",
+    "img": "/images/albums/japan.jpg",
     "coords": [139.69, 35.68],
     "category": "Countries"
   },
@@ -31,7 +31,7 @@
     "title": "Paris in Little Moments",
     "place": "Paris",
     "date": "13.05.2025",
-    "img": "./images/albums/paris.jpg",
+    "img": "/images/albums/paris.jpg",
     "coords": [2.35, 48.86],
     "category": "Cities"
   },
@@ -40,7 +40,7 @@
     "title": "My Riviera Escape",
     "place": "Nice",
     "date": "13.05.2025",
-    "img": "./images/albums/nice.jpg",
+    "img": "/images/albums/nice.jpg",
     "coords": [7.26, 43.7],
     "category": "Cities"
   },
@@ -49,7 +49,7 @@
     "title": "Quiet Mornings in Kyoto",
     "place": "Kyoto",
     "date": "13.05.2025",
-    "img": "./images/albums/kyoto.jpg",
+    "img": "/images/albums/kyoto.jpg",
     "coords": [135.77, 35.01],
     "category": "Cities"
   },
@@ -58,7 +58,7 @@
     "title": "Flavors I Still Think About",
     "place": "Paris",
     "date": "13.05.2025",
-    "img": "./images/albums/food-paris.jpg",
+    "img": "/images/albums/food-paris.jpg",
     "coords": [2.35, 48.86],
     "category": "Food"
   },
@@ -67,7 +67,7 @@
     "title": "Where I Ate & Loved It",
     "place": "Nice",
     "date": "13.05.2025",
-    "img": "./images/albums/food-nice.jpg",
+    "img": "/images/albums/food-nice.jpg",
     "coords": [7.26, 43.7],
     "category": "Food"
   },
@@ -76,7 +76,7 @@
     "title": "Taste of Kyoto Streets",
     "place": "Kyoto",
     "date": "13.05.2025",
-    "img": "./images/albums/food-kyoto.jpg",
+    "img": "/images/albums/food-kyoto.jpg",
     "coords": [135.77, 35.01],
     "category": "Food"
   },
@@ -85,7 +85,7 @@
     "title": "Stays That Became Part of the Journey",
     "place": "Paris",
     "date": "13.05.2025",
-    "img": "./images/albums/stay-paris.jpg",
+    "img": "/images/albums/stay-paris.jpg",
     "coords": [2.34, 48.85],
     "category": "Stays"
   },
@@ -94,7 +94,7 @@
     "title": "Rooms With a View (and a Story)",
     "place": "Amsterdam",
     "date": "13.05.2025",
-    "img": "./images/albums/stay-amsterdam.jpg",
+    "img": "/images/albums/stay-amsterdam.jpg",
     "coords": [4.9, 52.37],
     "category": "Stays"
   },
@@ -103,7 +103,7 @@
     "title": "Lakeside Serenity",
     "place": "Zurich",
     "date": "13.05.2025",
-    "img": "./images/albums/stay-zurich.jpg",
+    "img": "/images/albums/stay-zurich.jpg",
     "coords": [8.54, 47.37],
     "category": "Stays"
   },
@@ -112,7 +112,7 @@
     "title": "Louvre Museum",
     "place": "Paris",
     "date": "13.05.2025",
-    "img": "./images/albums/louvre.jpg",
+    "img": "/images/albums/louvre.jpg",
     "coords": [2.3364, 48.8609],
     "category": "Sights"
   },
@@ -121,7 +121,7 @@
     "title": "La Sagrada Familia",
     "place": "Barcelona",
     "date": "13.05.2025",
-    "img": "./images/albums/sagrada.jpg",
+    "img": "/images/albums/sagrada.jpg",
     "coords": [2.1744, 41.4036],
     "category": "Sights"
   },
@@ -130,7 +130,7 @@
     "title": "Duomo di Milano",
     "place": "Milan",
     "date": "13.05.2025",
-    "img": "./images/albums/milan.jpg",
+    "img": "/images/albums/milan.jpg",
     "coords": [9.19, 45.46],
     "category": "Sights"
   },
@@ -139,7 +139,7 @@
     "title": "Cycling through Amsterdam",
     "place": "Amsterdam",
     "date": "13.05.2025",
-    "img": "./images/albums/amsterdam-bike.jpg",
+    "img": "/images/albums/amsterdam-bike.jpg",
     "coords": [4.9, 52.37],
     "category": "Activities"
   },
@@ -148,7 +148,7 @@
     "title": "Hiking the Alps",
     "place": "Switzerland",
     "date": "13.05.2025",
-    "img": "./images/albums/alps-hike.jpg",
+    "img": "/images/albums/alps-hike.jpg",
     "coords": [8.23, 46.8],
     "category": "Activities"
   },
@@ -157,7 +157,7 @@
     "title": "Surfing in Portugal",
     "place": "Lisbon",
     "date": "13.05.2025",
-    "img": "./images/albums/portugal-surf.jpg",
+    "img": "/images/albums/portugal-surf.jpg",
     "coords": [-9.14, 38.72],
     "category": "Activities"
   }
