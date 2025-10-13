@@ -77,8 +77,8 @@ function Home() {
     if (!validateForm()) return;
 
     // Hardcoded credentials
-    const VALID_EMAIL = "test@email.com";
-    const VALID_PASSWORD = "MyPassword1";
+    const VALID_EMAIL = "bft@gmail.com";
+    const VALID_PASSWORD = "Password1";
 
     if (email === VALID_EMAIL && password === VALID_PASSWORD) {
       localStorage.setItem('token', 'fake-jwt-token');

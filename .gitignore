@@ -1,6 +1,7 @@
 # ReactJS
 ReactJS/node_modules
 ReactJS/package-lock.json
+ReactJS/build/*
 
 # NodeJS
 NodeJS
