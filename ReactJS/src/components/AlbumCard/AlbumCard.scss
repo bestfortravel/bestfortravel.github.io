@@ -11,6 +11,10 @@
 		max-width: unset;
 	}
 
+	@media (max-width: 1300px) {
+		max-width: unset;
+	}
+
   &.active {
     border: 2px solid #718af9;
     transform: translateY(-2px);
@@ -23,31 +27,10 @@
 
   .album-image {
     position: relative;
-    height: 140px;
     align-self: stretch;
     aspect-ratio: 211 / 140;
     border-radius: 24px;
-
-		@media (max-width: 1300px) {
-			height: 165px;
-		}
-
-		@media (max-width: 1030px) {
-			height: 150px;
-		}
-
-		@media (max-width: 950px) {
-			height: 140px;
-		}
-
-		@media (max-width: 900px) {
-			height: 200px;
-		}
-
-		@media (max-width: 768px) {
-			height: 160px;
-		}
-
+		width: 100%;
 
     .album-tag {
       position: absolute;

@@ -12,29 +12,29 @@ function Albums() {
   const markersRef = useRef([])
   const [activeFilter, setActiveFilter] = useState('All')
   const [hoveredId, setHoveredId] = useState(null)
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
-  const [drawerY, setDrawerY] = useState(0)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 900)
+  const [drawerY, setDrawerY] = useState(50) // 🟢 start half-open (50%)
   const [isDragging, setIsDragging] = useState(false)
-  const [drawerOpen, setDrawerOpen] = useState(true)
-  const startY = useRef(0)
-
-  // 🆕 album modal state
   const [selectedAlbum, setSelectedAlbum] = useState(null)
+  const startY = useRef(0)
+  const drawerRef = useRef(null)
 
   const albums = albumsData
-  const filteredAlbums =
-    activeFilter === 'All'
-      ? albums
-      : albums.filter((a) => a.category === activeFilter)
+  const filters = ['All', 'Countries', 'Cities', 'Food', 'Stays', 'Sights', 'Activities']
 
-  // Responsive check
+  const visibleCategories =
+    activeFilter === 'All'
+      ? [...new Set(albums.map((a) => a.category))]
+      : [activeFilter]
+
+  // ✅ Responsive check
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768)
+    const handleResize = () => setIsMobile(window.innerWidth <= 900)
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Initialize map
+  // ✅ Initialize map
   useEffect(() => {
     if (map.current) return
 
@@ -71,7 +71,7 @@ function Albums() {
     })
   }, [albums])
 
-  // Add markers
+  // ✅ Add markers to map
   const addMarkers = (points) => {
     markersRef.current.forEach((m) => m.marker.remove())
     markersRef.current = []
@@ -89,15 +89,28 @@ function Albums() {
       el.addEventListener('mouseenter', () => setHoveredId(point.id))
       el.addEventListener('mouseleave', () => setHoveredId(null))
 
-      // 🆕 On click → show album modal on mobile or scroll on desktop
+      // 🟢 On click → scroll to album card (desktop) / show modal (mobile)
       el.addEventListener('click', () => {
         if (isMobile) {
           setSelectedAlbum(point)
-          setDrawerOpen(false)
+          setDrawerY(95) // collapse drawer for modal
         } else {
           const albumEl = document.querySelector(`[data-album-id='${point.id}']`)
-          if (albumEl) {
+          const container = document.querySelector('.albums-left')
+
+          if (albumEl && container) {
             albumEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
+
+            // fallback manual scroll
+            const rect = albumEl.getBoundingClientRect()
+            const containerRect = container.getBoundingClientRect()
+            const offset =
+              container.scrollTop +
+              (rect.top - containerRect.top) -
+              container.clientHeight / 2 +
+              rect.height / 2
+            container.scrollTo({ top: offset, behavior: 'smooth' })
+
             albumEl.classList.add('highlighted')
             setTimeout(() => albumEl.classList.remove('highlighted'), 1200)
           }
@@ -109,7 +122,7 @@ function Albums() {
   }
 
   useEffect(() => {
-    if (map.current) addMarkers(filteredAlbums)
+    if (map.current) addMarkers(albums)
   }, [activeFilter])
 
   useEffect(() => {
@@ -125,54 +138,60 @@ function Albums() {
   }
   const handleAlbumLeave = () => setHoveredId(null)
 
-  // Drawer touch controls
+  // ---------------- Drawer touch controls ----------------
   const handleTouchStart = (e) => {
     setIsDragging(true)
-    startY.current = e.touches[0].clientY - drawerY
+    startY.current = e.touches[0].clientY
+    document.body.style.overflow = 'hidden'
   }
 
   const handleTouchMove = (e) => {
     if (!isDragging) return
-    let newY = e.touches[0].clientY - startY.current
-    newY = Math.max(0, Math.min(window.innerHeight * 0.6, newY))
-    setDrawerY(newY)
+
+    const deltaY = e.touches[0].clientY - startY.current
+    const vh = window.innerHeight
+    const movePercent = (deltaY / vh) * 100
+
+    let newDrawerY = Math.min(95, Math.max(0, drawerY + movePercent)) // clamp 0–95%
+
+    setDrawerY(newDrawerY)
+    startY.current = e.touches[0].clientY
   }
 
   const handleTouchEnd = () => {
     setIsDragging(false)
-    if (drawerY > window.innerHeight * 0.3) {
-      setDrawerOpen(false)
-      setDrawerY(window.innerHeight * 0.6)
-    } else {
-      setDrawerOpen(true)
-      setDrawerY(0)
-    }
+    document.body.style.overflow = ''
+
+    if (drawerY > 70) setDrawerY(95) // collapsed
+    else if (drawerY < 25) setDrawerY(0) // open
+    else setDrawerY(50) // middle
   }
 
-  const filters = [
-    'All',
-    'Countries',
-    'Cities',
-    'Food',
-    'Stays',
-    'Sights',
-    'Activities',
-  ]
+  // 🟢 Collapse when map moves
+  useEffect(() => {
+    if (!map.current) return
+    const handleMoveStart = () => {
+      if (isMobile) setDrawerY(95)
+    }
+    map.current.on('movestart', handleMoveStart)
+    return () => map.current.off('movestart', handleMoveStart)
+  }, [isMobile])
 
   return (
     <div className='wrapper-full-width albums-page'>
-      {/* Desktop */}
+      {/* 🖥 Desktop */}
       {!isMobile && (
         <div className='albums-left'>
           <div className='back-btn-container'>
-              <Link to='/profile' className='back-btn'>Back to profile</Link>
+            <Link to='/profile' className='back-btn'>Back to profile</Link>
           </div>
+
           <div className='albums-header'>
             <h2 className='albums-title'>Leslie’s albums</h2>
             <div className='sort-section'>
               <span>Sort by</span>
               <button className='sort-button'>
-                <img className='sort-icon' src='./icons/sort.svg' alt='sort'></img>
+                <img className='sort-icon' src='./icons/sort.svg' alt='sort' />
               </button>
             </div>
           </div>
@@ -189,22 +208,35 @@ function Albums() {
             ))}
           </div>
 
-          <div className='album-section'>
-            <div className='album-grid'>
-              {filteredAlbums.map((album) => (
-                <AlbumCard
-                  key={album.id}
-                  album={album}
-                  onHover={() => handleAlbumHover(album)}
-                  onLeave={handleAlbumLeave}
-                />
-              ))}
-            </div>
-          </div>
+          {/* Sectioned Albums */}
+          {visibleCategories.map((cat) => {
+            const catAlbums = albums.filter((a) => a.category === cat)
+            return (
+              <div key={cat} className='album-category-section'>
+                <div className='category-header'>
+                  <h3 className='category-title'>{cat}</h3>
+                  <Link to={`/albums?category=${cat}`} className='see-all'>
+                    See all <span className='see-all-icon'></span>
+                  </Link>
+                </div>
+                <div className='album-row'>
+                  {catAlbums.map((album) => (
+                    <AlbumCard
+                      key={album.id}
+                      album={album}
+                      data-album-id={album.id}
+                      onHover={() => handleAlbumHover(album)}
+                      onLeave={handleAlbumLeave}
+                    />
+                  ))}
+                </div>
+              </div>
+            )
+          })}
         </div>
       )}
 
-      {/* Map + Mobile */}
+      {/* 📱 Mobile */}
       <div className='albums-map'>
         <div ref={mapContainer} className='map-container'></div>
 
@@ -212,9 +244,10 @@ function Albums() {
           <>
             {/* Drawer */}
             <div
-              className={`mobile-drawer ${drawerOpen ? 'open' : 'closed'}`}
+              ref={drawerRef}
+              className={`mobile-drawer ${isDragging ? 'dragging' : ''}`}
               style={{
-                transform: `translateY(${drawerY > 0 ? drawerY + 'px' : '50%'})`,
+                transform: `translateY(${drawerY}%)`,
                 transition: isDragging ? 'none' : 'transform 0.3s ease',
               }}
               onTouchStart={handleTouchStart}
@@ -222,13 +255,14 @@ function Albums() {
               onTouchEnd={handleTouchEnd}
             >
               <div className='drawer-handle'></div>
-              <div className='drawer-content'>
-                <div className='back-btn-container'>
-                    <Link to='/profile' className='back-btn'>Back to profile</Link>
-                </div>
-                <div className='albums-header mobile'>
-                  <h2 className='albums-title'>Leslie’s albums</h2>
-                </div>
+              <div
+                className='drawer-content'
+                style={{
+                  overflowY: isDragging ? 'hidden' : 'auto',
+                  touchAction: isDragging ? 'none' : 'auto',
+                }}
+              >
+                <h2 className='albums-title'>Leslie’s albums</h2>
 
                 <div className='albums-filters mobile'>
                   {filters.map((f) => (
@@ -242,46 +276,50 @@ function Albums() {
                   ))}
                 </div>
 
-                <div className='album-grid'>
-                  {filteredAlbums.map((album) => (
-                    <AlbumCard
-                      key={album.id}
-                      album={album}
-                      onHover={() => handleAlbumHover(album)}
-                      onLeave={handleAlbumLeave}
-                    />
-                  ))}
-                </div>
+                {visibleCategories.map((cat) => {
+                  const catAlbums = albums.filter((a) => a.category === cat)
+                  return (
+                    <div key={cat} className='album-category-section mobile'>
+                      <div className='category-header'>
+                        <h3 className='category-title'>{cat}</h3>
+                        <Link to={`/albums?category=${cat}`} className='see-all'>
+                          See all <span className='see-all-icon'></span>
+                        </Link>
+                      </div>
+                      <div className='album-row'>
+                        {catAlbums.map((album) => (
+                          <AlbumCard
+                            key={album.id}
+                            album={album}
+                            onHover={() => handleAlbumHover(album)}
+                            onLeave={handleAlbumLeave}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
 
-            {/* 🆕 Album Modal */}
+            {/* 🟢 Mobile Modal */}
             {selectedAlbum && (
               <div className='album-modal-overlay' onClick={() => setSelectedAlbum(null)}>
                 <div
                   className='album-modal'
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <button
-                    className='close-modal'
-                    onClick={() => setSelectedAlbum(null)}
-                  >
+                  <button className='close-modal' onClick={() => setSelectedAlbum(null)}>
                     ✕
                   </button>
                   <img src={selectedAlbum.img} alt={selectedAlbum.title} />
-                  <a
-                    href={`/albums/${selectedAlbum.id}`}
-                    className='view-link'
-                  >
+                  <Link to={`/albums/${selectedAlbum.id}`} className='view-link'>
                     <div className='album-modal-info'>
                       <h3 className='album-title'>{selectedAlbum.title}</h3>
                       <p>{selectedAlbum.place}</p>
-                      <p className='album-date'>
-                        {selectedAlbum.date}
-                      </p>
-                      <div className='link-icon'></div>
+                      <p className='album-date'>{selectedAlbum.date}</p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             )}

@@ -35,10 +35,11 @@ function AlbumDetails() {
         {photos.map((photo, idx) => (
           <div key={idx} className='photo-card'>
             <img className='photo-card-image' src={photo} alt={`${album.title} ${idx}`} />
+            <button className='photo-card-eye-btn'></button>
             <div className='photo-footer'>
               <div className='stats'>
-                <span><img className='photo-icon' src='/icons/like.svg' alt='like' /> 78</span>
-								<span><img className='photo-icon' src='/icons/comments.svg' alt='comment' /> 12</span>
+                <img className='photo-icon' src='/icons/like.svg' alt='like' /><span>78</span>
+								<img className='photo-icon' src='/icons/comments.svg' alt='comment' /><span>12</span>
               </div>
               <button className='save-btn'><img className='photo-icon' src='/icons/notes.svg' alt='notes' /></button>
             </div>
