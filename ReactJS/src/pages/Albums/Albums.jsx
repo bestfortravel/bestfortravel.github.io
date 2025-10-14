@@ -13,11 +13,12 @@ function Albums() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [hoveredId, setHoveredId] = useState(null)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900)
-  const [drawerY, setDrawerY] = useState(50) // 🟢 start half-open (50%)
+  const [drawerY, setDrawerY] = useState(50)
   const [isDragging, setIsDragging] = useState(false)
   const [selectedAlbum, setSelectedAlbum] = useState(null)
   const startY = useRef(0)
   const drawerRef = useRef(null)
+  const dragStartFromHeader = useRef(false)
 
   const albums = albumsData
   const filters = ['All', 'Countries', 'Cities', 'Food', 'Stays', 'Sights', 'Activities']
@@ -27,14 +28,14 @@ function Albums() {
       ? [...new Set(albums.map((a) => a.category))]
       : [activeFilter]
 
-  // ✅ Responsive check
+  // Responsive check
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 900)
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // ✅ Initialize map
+  // Initialize map
   useEffect(() => {
     if (map.current) return
 
@@ -71,7 +72,7 @@ function Albums() {
     })
   }, [albums])
 
-  // ✅ Add markers to map
+  // Add markers
   const addMarkers = (points) => {
     markersRef.current.forEach((m) => m.marker.remove())
     markersRef.current = []
@@ -89,11 +90,10 @@ function Albums() {
       el.addEventListener('mouseenter', () => setHoveredId(point.id))
       el.addEventListener('mouseleave', () => setHoveredId(null))
 
-      // 🟢 On click → scroll to album card (desktop) / show modal (mobile)
       el.addEventListener('click', () => {
         if (isMobile) {
           setSelectedAlbum(point)
-          setDrawerY(95) // collapse drawer for modal
+          setDrawerY(95)
         } else {
           const albumEl = document.querySelector(`[data-album-id='${point.id}']`)
           const container = document.querySelector('.albums-left')
@@ -101,7 +101,6 @@ function Albums() {
           if (albumEl && container) {
             albumEl.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
-            // fallback manual scroll
             const rect = albumEl.getBoundingClientRect()
             const containerRect = container.getBoundingClientRect()
             const offset =
@@ -140,34 +139,44 @@ function Albums() {
 
   // ---------------- Drawer touch controls ----------------
   const handleTouchStart = (e) => {
-    setIsDragging(true)
-    startY.current = e.touches[0].clientY
-    document.body.style.overflow = 'hidden'
+    const target = e.target
+
+    // 🟢 Only allow dragging from handle or header (not scrollable content)
+    if (target.closest('.drawer-handle') || target.closest('.drawer-header')) {
+      dragStartFromHeader.current = true
+      setIsDragging(true)
+      startY.current = e.touches[0].clientY
+      document.body.style.overflow = 'hidden'
+    } else {
+      dragStartFromHeader.current = false
+    }
   }
 
   const handleTouchMove = (e) => {
-    if (!isDragging) return
+    if (!isDragging || !dragStartFromHeader.current) return
 
     const deltaY = e.touches[0].clientY - startY.current
     const vh = window.innerHeight
     const movePercent = (deltaY / vh) * 100
 
-    let newDrawerY = Math.min(95, Math.max(0, drawerY + movePercent)) // clamp 0–95%
-
+    let newDrawerY = Math.min(95, Math.max(0, drawerY + movePercent))
     setDrawerY(newDrawerY)
     startY.current = e.touches[0].clientY
   }
 
   const handleTouchEnd = () => {
+    if (!dragStartFromHeader.current) return
+
     setIsDragging(false)
     document.body.style.overflow = ''
+    dragStartFromHeader.current = false
 
-    if (drawerY > 70) setDrawerY(95) // collapsed
-    else if (drawerY < 25) setDrawerY(0) // open
-    else setDrawerY(50) // middle
+    if (drawerY > 70) setDrawerY(95)
+    else if (drawerY < 25) setDrawerY(0)
+    else setDrawerY(50)
   }
 
-  // 🟢 Collapse when map moves
+  // Collapse on map move
   useEffect(() => {
     if (!map.current) return
     const handleMoveStart = () => {
@@ -208,7 +217,6 @@ function Albums() {
             ))}
           </div>
 
-          {/* Sectioned Albums */}
           {visibleCategories.map((cat) => {
             const catAlbums = albums.filter((a) => a.category === cat)
             return (
@@ -242,7 +250,6 @@ function Albums() {
 
         {isMobile && (
           <>
-            {/* Drawer */}
             <div
               ref={drawerRef}
               className={`mobile-drawer ${isDragging ? 'dragging' : ''}`}
@@ -254,7 +261,12 @@ function Albums() {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <div className='drawer-handle'></div>
+              {/* 🟢 Drawer Header Area (used for drag) */}
+              <div className='drawer-header'>
+                <div className='drawer-handle'></div>
+                <h2 className='albums-title'>Leslie’s albums</h2>
+              </div>
+
               <div
                 className='drawer-content'
                 style={{
@@ -262,8 +274,6 @@ function Albums() {
                   touchAction: isDragging ? 'none' : 'auto',
                 }}
               >
-                <h2 className='albums-title'>Leslie’s albums</h2>
-
                 <div className='albums-filters mobile'>
                   {filters.map((f) => (
                     <button
@@ -302,16 +312,13 @@ function Albums() {
               </div>
             </div>
 
-            {/* 🟢 Mobile Modal */}
             {selectedAlbum && (
               <div className='album-modal-overlay' onClick={() => setSelectedAlbum(null)}>
                 <div
                   className='album-modal'
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <button className='close-modal' onClick={() => setSelectedAlbum(null)}>
-                    ✕
-                  </button>
+                  <button className='close-modal' onClick={() => setSelectedAlbum(null)}>✕</button>
                   <img src={selectedAlbum.img} alt={selectedAlbum.title} />
                   <Link to={`/albums/${selectedAlbum.id}`} className='view-link'>
                     <div className='album-modal-info'>

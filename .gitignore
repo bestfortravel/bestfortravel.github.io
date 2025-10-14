@@ -14,3 +14,4 @@ NodeJS/package-lock.json
 
 # Optional npm cache directory
 .npm
+ReactJS/build/*
