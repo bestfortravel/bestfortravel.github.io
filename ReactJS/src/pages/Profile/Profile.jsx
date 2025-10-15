@@ -9,11 +9,19 @@ import Post from '../../components/Post';
 import Monuments from '../../components/Monuments';
 import Recommendations from '../../components/Recommendations';
 import TravelMap from "../../components/TravelMap";
+import ProfileInsights from "../../components/ProfileInsights";
 
 const Profile = () => {
   return (
       <>
         <ProfileBanner />
+
+        <ProfileInsights
+          visitedCountries={9}
+          nextRankAt={15}
+          insights={{ countries: 24, cities: 67, trips: 45 }}
+        />
+
         <TravelMap />
         <InterestsSection />
         <TravelHighlights />
