@@ -15,7 +15,9 @@ function Layout() {
   return (
     <>
       <Header fullWidth={isFullWidth} />
-      <Outlet />
+      <div className='page-content'>
+        <Outlet />
+      </div>
     </>
   );
 }
