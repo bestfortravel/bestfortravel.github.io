@@ -1,4 +1,4 @@
-.badge {
+.album-badge {
   display: flex;
   padding: 4px 8px;
   align-items: center;
@@ -9,14 +9,14 @@
   left: 12px;
   top: 12px;
 
-  .badge-wrap {
+  .album-badge-wrap {
     display: flex;
     padding: 0 4px;
     align-items: flex-start;
     gap: 0;
     border-radius: 0;
 
-    .badge-label {
+    .album-badge-label {
       color: #3F3F50;
       font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
       font-size: 14px;

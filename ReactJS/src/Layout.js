@@ -5,7 +5,7 @@ function Layout() {
   const location = useLocation();
 
   // define which routes should have full-width header
-  const fullWidthRoutes = ['/map', '/albums']
+  const fullWidthRoutes = ['/map', '/albums', '/insights']
 
   // check if the current route matches one of them
   const isFullWidth = fullWidthRoutes.some(route =>

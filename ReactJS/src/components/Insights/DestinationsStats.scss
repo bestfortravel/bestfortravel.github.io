@@ -1,0 +1,109 @@
+:root {
+  --asia-color: #b388ff;
+  --africa-color: #0f4cff;
+  --europe-color: #1e293b;
+  --southamerica-color: #cbd5e1;
+  --northamerica-color: #22c55e;
+  --australia-color: #f59e0b;
+  --antarctica-color: #94a3b8;
+}
+
+.destinations-card {
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+	height: 100%;
+	box-sizing: border-box;
+
+  .header {
+    width: 100%;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 20px 24px 16px;
+		box-sizing: border-box;
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+  }
+
+  .globe-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 20px 0;
+
+		@media (max-width: 600px) {
+    	padding: 5px 20px 0;
+		}
+
+    .globe-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 20px;
+
+      .globe-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        object-fit: cover;
+        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+        z-index: 1;
+      }
+
+      .globe-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        z-index: 0;
+      }
+    }
+
+    .continents-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 220px;
+
+      .continent-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        color: #334155;
+        font-weight: 500;
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+        }
+
+        .label {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+
+          .percent {
+            color: #64748b;
+            font-weight: 400;
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+  }
+}

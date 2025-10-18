@@ -1,0 +1,119 @@
+.insights-achievements-section {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  .travel-insights-section,
+  .achievements-section {
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    min-width: 280px;
+    flex: 1;
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid #e2e8f0;
+
+      h3 {
+				color: #1E293B;
+				text-align: center;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 22px;
+        margin: 0;
+      }
+
+      @media (max-width: 991px) {
+        padding: 16px 20px;
+      }
+    }
+
+    .insights-list,
+    .achievements-list {
+      padding: 24px;
+
+      @media (max-width: 991px) {
+        padding: 20px;
+      }
+    }
+
+    .insight-item,
+    .achievement-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .insight-emoji {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        background: #f1f5f9;
+        font-size: 28px;
+      }
+
+      .achievement-icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      .insight-content,
+      .achievement-content {
+        flex: 1;
+
+        h4 {
+					color:#1E293B;
+					font-size: 16px;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 26px;
+          margin: 0;
+        }
+
+        p {
+					color: #475569;
+					font-size: 12px;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 20px;
+          margin: 0;
+        }
+      }
+
+      .achievement-status {
+        &.earned {
+          background: #ECFDF5;
+          color: #3F3F50;
+          font-size: 12px;
+					font-style: normal;
+          font-weight: 400;
+          line-height: 16px;
+          padding: 4px 8px;
+          border-radius: 8px;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+}
+
+.insight-content {
+    text-align: left;
+}

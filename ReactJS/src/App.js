@@ -1,8 +1,4 @@
-import logo from './logo.svg';
 import './App.scss';
-
-//Components
-import Header from './components/Header';
 
 //Pages
 import Home from './pages/Home';
@@ -13,6 +9,7 @@ import Terms from './pages/Terms';
 import Albums from './pages/Albums';
 import AlbumDetails from './pages/AlbumDetails';
 import Privacy from './pages/Privacy';
+import Insights from './pages/Insights';
 import NotFound from './pages/NotFound';
 
 import ProtectedRoute from './components/ProtectedRoute';
@@ -36,6 +33,7 @@ function App() {
           <Route path='/map' element={<Map />} />
           <Route path='/albums' element={<Albums />} />
           <Route path='/albums/:id' element={<AlbumDetails />} />
+          <Route path='/insights' element={<Insights />} />
           <Route path='/terms' element={<Terms />} />
           <Route path='/privacy' element={<Privacy />} />
           <Route path='*' element={<NotFound />} />

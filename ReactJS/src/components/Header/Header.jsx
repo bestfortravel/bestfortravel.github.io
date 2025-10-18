@@ -7,9 +7,7 @@ export default function Header({ fullWidth = false }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      // If user scrolled down 20px or more, make header sticky
-      // setIsSticky(window.scrollY > 20)
-      setIsSticky(window.scrollY > window.innerHeight * 0.3)
+      setIsSticky(window.scrollY > 0)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -48,6 +46,12 @@ export default function Header({ fullWidth = false }) {
                 className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
               >
                 Profile
+              </NavLink>
+              <NavLink
+                to='/insights'
+                className={({ isActive }) => `header-link ${isActive ? 'active' : ''}`}
+              >
+                Insights
               </NavLink>
             </div>
 

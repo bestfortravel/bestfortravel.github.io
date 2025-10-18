@@ -1,0 +1,153 @@
+.travel-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  .chart-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 0 24px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      margin-bottom: 24px;
+      position: relative;
+
+      h3 {
+        color: #1E293B;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        margin: 0;
+      }
+
+      .chart-filter {
+        position: relative;
+        color: #64748B;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .arrow {
+          width: 16px;
+          height: 16px;
+          opacity: 0.6;
+          transition: transform 0.2s ease;
+
+          &.rotated {
+            transform: rotate(180deg);
+          }
+        }
+
+        .dropdown {
+          position: absolute;
+          top: 120%;
+          right: 0;
+          background: #fff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          z-index: 10;
+          width: 160px;
+
+          .dropdown-item {
+            padding: 8px 12px;
+            font-size: 14px;
+            color: #475569;
+            cursor: pointer;
+            transition: background 0.2s;
+
+            &:hover {
+              background: #f8fafc;
+            }
+
+            &.active {
+              background: #eef2ff;
+              color: #3730a3;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: calc(100% + 48px);
+        height: 1px;
+        background-color: #e2e8f0;
+        left: -24px;
+        bottom: 0;
+      }
+    }
+
+    .custom-tooltip {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 13px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      .label {
+        color: #94A3B8;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+      }
+    }
+
+    .recharts-cartesian-grid line {
+      stroke: #f1f5f9;
+    }
+
+    .recharts-tooltip-cursor {
+      fill: rgba(130, 90, 255, 0.05);
+    }
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.recharts-bar-rectangle path {
+  transition: fill 0.25s ease;
+}
+
+// For the left chart tooltip (fixed inline)
+.line-tooltip {
+  transform: translate(-85%, -60%);
+}
+
+// For the right chart tooltip (floating above bar)
+.bar-tooltip {
+  transform: translateY(-100%);
+  text-align: center;
+}
+
+.recharts-wrapper,
+.recharts-surface {
+  outline: none;
+
+  &:focus-visible,
+  &:focus-within,
+  &:focus {
+    outline: none;
+  }
+}

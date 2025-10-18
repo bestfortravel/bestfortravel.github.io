@@ -1,0 +1,16 @@
+.insights-container {
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0 0 120px 0 rgba(71, 85, 105, 0.07);
+  padding: 32px;
+
+  @media (max-width: 991px) {
+    padding: 20px;
+  }
+
+  .insights-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}

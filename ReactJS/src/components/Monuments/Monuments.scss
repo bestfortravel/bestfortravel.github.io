@@ -141,6 +141,13 @@
     white-space: pre-wrap;
     max-width: 100px;
   }
+
+  @media (max-width: 600px) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
 }
 
 .monument-rating {

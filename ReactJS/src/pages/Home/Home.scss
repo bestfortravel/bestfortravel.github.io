@@ -73,6 +73,26 @@
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
+
+  .divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    margin: 16px 0;
+
+    span {
+      flex: 1 0 0;
+      color: #475569;
+      text-align: center;
+      font: 400 14px/22px Inter;
+
+      @media (max-width: 640px) {
+        font-size: 13px;
+      }
+    }
+  }
 }
 
 .form-section {
@@ -142,26 +162,6 @@
     @media (max-width: 640px) {
       height: 48px;
       font-size: 15px;
-    }
-  }
-}
-
-.divider {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  align-self: stretch;
-  margin: 16px 0;
-
-  span {
-    flex: 1 0 0;
-    color: #475569;
-    text-align: center;
-    font: 400 14px/22px Inter;
-
-    @media (max-width: 640px) {
-      font-size: 13px;
     }
   }
 }
