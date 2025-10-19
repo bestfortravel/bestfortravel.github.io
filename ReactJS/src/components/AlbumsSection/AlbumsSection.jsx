@@ -19,7 +19,7 @@ function AlbumsSection() {
         </div>
 
         <div className='albums-section-grid'>
-          <div className='album-section-card large-card'>
+          <div className='album-section-card'>
             <img
               src='./images/Australia.png'
               alt='Australia travel album'
