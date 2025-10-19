@@ -30,12 +30,6 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-
-  @media (max-width: 640px) {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
 }
 
 .albums-section-title {
@@ -108,7 +102,7 @@
   }
 
   @media (max-width: 600px) {
-    height: 150px;
+    height: 145px;
   }
 }
 
