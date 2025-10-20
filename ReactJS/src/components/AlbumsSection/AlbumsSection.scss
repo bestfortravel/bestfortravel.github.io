@@ -80,6 +80,15 @@
   align-items: center;
   gap: 12px;
   width: 100%;
+
+  @media (max-width: 1024px) {
+    overflow-x: scroll;
+  }
+
+  @media (max-width: 640px) {
+    flex-wrap: wrap;
+    overflow-x: unset;
+  }
 }
 
 .album-section-card {
@@ -89,20 +98,20 @@
   width: calc((100% - 24px) / 3);
   height: 316px;
 
-  @media (max-width: 991px) {
-    height: 250px;
+  @media (max-width: 1024px) {
+    min-width: calc(50% - 12px / 2);
   }
 
   @media (max-width: 800px) {
-    height: 200px;
+    height: 250px;
   }
 
-  @media (max-width: 700px) {
-    height: 180px;
-  }
+  @media (max-width: 640px) {
+    height: 230px;
 
-  @media (max-width: 600px) {
-    height: 145px;
+    &:nth-child(1) {
+      width: 100%;
+    }
   }
 }
 
@@ -128,7 +137,7 @@
     align-items: center;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     top: auto;
     bottom: 24px;
     flex-direction: column;
@@ -145,10 +154,6 @@
   font-size: 24px;
   font-weight: 700;
   margin: 0;
-
-  @media (max-width: 991px) {
-    font-size: 20px;
-  }
 }
 
 .posts-badge {

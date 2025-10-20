@@ -20,6 +20,8 @@
     .insights-right {
       .insights-grid {
         flex-wrap: wrap;
+        gap: 10px;
+        justify-content: start;
       }
     }
   }
@@ -31,6 +33,10 @@
 
   @media (max-width: 1000px) {
     margin: 0 10px;
+  }
+
+  @media (max-width: 600px) {
+    margin: 0 6px;
   }
 }
 

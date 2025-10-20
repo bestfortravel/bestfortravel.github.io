@@ -22,7 +22,11 @@
 
   @media (max-width: 640px) {
     border-radius: 16px;
-    min-height: 610px;
+    min-height: 542px;
+  }
+
+  @media (max-width: 500px) {
+    min-height: 600px;
   }
 }
 
@@ -121,7 +125,7 @@
     color: #fff;
     text-align: center;
     position: relative;
-    font: 500 16px/22px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 500 16px/22px Inter;
 
     @media (max-width: 991px) {
       font-size: 14px;
@@ -148,15 +152,14 @@
 
   @media (max-width: 991px) {
     height: unset;
-    left: 16px;
     top: 240px;
     gap: 16px;
   }
 
   @media (max-width: 640px) {
-    left: 12px;
+    left: 20px;
     top: 160px;
-    width: calc(100% - 140px);
+    width: calc(100% - 110px);
   }
 }
 
@@ -237,7 +240,7 @@
     color: #000;
     text-align: center;
     position: relative;
-    font: 500 18px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+    font: 500 18px Inter;
 
     @media (max-width: 991px) {
       font-size: 16px;
@@ -274,7 +277,7 @@
   align-self: stretch;
   color: #1e293b;
   position: relative;
-  font: 600 32px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font: 600 32px Inter;
 
   @media (max-width: 991px) {
     font-size: 28px;
@@ -302,7 +305,7 @@
 .location-text {
   color: #1e293b;
   position: relative;
-  font: 600 16px/20px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font: 600 16px/20px Inter;
 
   @media (max-width: 640px) {
     font-size: 14px;
@@ -347,7 +350,7 @@
 .badge-label {
   color: #0075ad;
   position: relative;
-  font: 400 14px/20px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font: 400 14px/20px Inter;
 }
 
 .description-section {
@@ -357,13 +360,17 @@
   gap: 16px;
   position: relative;
   max-width: 500px;
+
+  @media (max-width: 640px) {
+    max-width: 550px;
+  }
 }
 
 .bio-text {
   width: 634px;
   color: #1e293b;
   position: relative;
-  font: 400 16px/26px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font: 400 16px/26px Inter;
 
   @media (max-width: 991px) {
     width: 100%;
@@ -395,7 +402,7 @@
 .stat-item {
   color: #475569;
   position: relative;
-  font: 400 16px/26px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font: 400 16px/26px Inter;
 
   @media (max-width: 640px) {
     font-size: 14px;

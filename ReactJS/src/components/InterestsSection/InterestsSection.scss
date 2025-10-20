@@ -50,15 +50,17 @@
 .card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   align-self: stretch;
   position: relative;
-}
 
-.section-title {
-  color: #1e293b;
-  position: relative;
-  font: 400 18px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  .section-title {
+    color: #1E293B;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
 }
 
 .view-all-link {
@@ -93,14 +95,14 @@
 
 .badge-wrap {
   display: flex;
-  padding: 0 4px;
   align-items: flex-start;
   position: relative;
 }
 
 .badge-label {
-  color: #3f3f50;
-  position: relative;
-  font: 400 14px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  color: #3F3F50;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
   line-height: 20px;
 }
