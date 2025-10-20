@@ -25,6 +25,14 @@
       }
     }
   }
+
+  @media (max-width: 500px) {
+    .insights-right {
+      .insights-grid {
+        gap: 5px;
+      }
+    }
+  }
 }
 
 .insight-item {

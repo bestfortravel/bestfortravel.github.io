@@ -12,12 +12,22 @@ export default function CountriesCitiesSection({ countries = [], cities = [] }) 
   ]
 
   // === Sorting Logic ===
+  const parseMonthYear = (str) => {
+    if (!str) return new Date(0) // fallback
+    const [month, year] = str.split(' ')
+    const monthIndex = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+    ].findIndex(m => m.toLowerCase() === month.toLowerCase())
+    return monthIndex >= 0 ? new Date(year, monthIndex, 1) : new Date(0)
+  }
+
   const getSortedCountries = () => {
     let sorted = [...countries]
     if (countrySort === 'alphabetical') {
       sorted.sort((a, b) => a.name.localeCompare(b.name))
     } else if (countrySort === 'bydate') {
-      sorted.sort((a, b) => new Date(b.lastVisit) - new Date(a.lastVisit))
+      sorted.sort((a, b) => parseMonthYear(b.lastVisit) - parseMonthYear(a.lastVisit))
     }
     return sorted
   }

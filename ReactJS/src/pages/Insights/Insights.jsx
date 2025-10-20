@@ -56,37 +56,6 @@ function Insights() {
     }
   ]
 
-  const recentTrips = [
-    {
-      id: 1,
-      image: '/images/Japan.png',
-      destination: 'Tokyo, Japan',
-      date: 'Dec 15-22, 2024',
-      badges: ['7 days', 'Solo', 'Culture']
-    },
-    {
-      id: 2,
-      image: '/images/PostImage1.png',
-      destination: 'Seoul, South Korea',
-      date: 'Nov 8-15, 2024',
-      badges: ['7 days', 'Friends', 'Photography']
-    },
-    {
-      id: 3,
-      image: '/images/PostImage2.png',
-      destination: 'Singapore',
-      date: 'Oct 20-24, 2024',
-      badges: ['5 days', 'Business', 'Conference']
-    },
-    {
-      id: 4,
-      image: '/images/PostImage3.png',
-      destination: 'Amsterdam, Netherlands',
-      date: 'Aug 5-12, 2024',
-      badges: ['7 days', 'Friends', 'Leisure']
-    }
-  ]
-
   const countries = [
     {
       flag: '🇦🇺',
