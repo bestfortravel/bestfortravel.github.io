@@ -26,10 +26,14 @@
     }
   }
 
+  @media (max-width: 600px) {
+    padding: 24px 20px;
+  }
+
   @media (max-width: 500px) {
     .insights-right {
       .insights-grid {
-        gap: 5px;
+        gap: 0;
       }
     }
   }
@@ -44,7 +48,7 @@
   }
 
   @media (max-width: 600px) {
-    margin: 0 6px;
+    margin: 0 3px;
   }
 }
 
@@ -142,5 +146,9 @@
     &:hover {
       transform: scale(1.1);
     }
+  }
+
+  @media (max-width: 600px) {
+    gap: 5px;
   }
 }
