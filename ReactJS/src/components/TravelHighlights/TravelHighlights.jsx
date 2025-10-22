@@ -395,10 +395,19 @@ function TravelHighlights({ videos = [] }) {
                         <img src='/icons/arrow-left.svg' alt='Back' />Back
                       </button>
                     </div>
-                    <div className='comments-list'>
+                  <div className='comments-list'>
                       {comments.map((c, i) => (
                         <div key={i} className='comment-item'>
-                          <strong>{c.user}:</strong> {c.text}
+                          <div className='comment-avatar'>
+                            <img className='comment-avatar-image' src={c.userAvatar} alt='comment-avatar' />
+                          </div>
+                          <div className='comment-wrapper'>
+                            <div className='comment-wrapper-inner'>
+                              <p className='comment-title'>{c.user}</p>
+                              <p className='comment-text'>{c.text}</p>
+                            </div>
+                              <p className='comment-date'>{c.date}</p>
+                          </div>
                         </div>
                       ))}
                     </div>
