@@ -1,5 +1,5 @@
-import React from "react";
-import "./Profile.scss";
+import React from 'react';
+import './Profile.scss';
 
 import ProfileBanner from '../../components/ProfileBanner';
 import InterestsSection from '../../components/InterestsSection';
@@ -8,8 +8,10 @@ import Albums from '../../components/AlbumsSection';
 import Post from '../../components/Post';
 import Monuments from '../../components/Monuments';
 import Recommendations from '../../components/Recommendations';
-import TravelMap from "../../components/TravelMap";
-import ProfileInsights from "../../components/ProfileInsights";
+import TravelMap from '../../components/TravelMap';
+import ProfileInsights from '../../components/ProfileInsights';
+
+import { userVideos } from './userVideos';
 
 const Profile = () => {
   return (
@@ -24,7 +26,7 @@ const Profile = () => {
 
         <TravelMap />
         <InterestsSection />
-        <TravelHighlights />
+        <TravelHighlights videos={userVideos} />
         <Albums />
         <Post />
         <Monuments />
