@@ -172,7 +172,7 @@ export default function TravelCharts() {
               className={`arrow ${showYearDropdown ? 'rotated' : ''}`}
             />
             {showYearDropdown && (
-              <div className='dropdown'>
+              <div className='dropdown-menu'>
                 {yearOptions.map((option) => (
                   <div
                     key={option}
@@ -247,7 +247,7 @@ export default function TravelCharts() {
               className={`arrow ${showMonthDropdown ? 'rotated' : ''}`}
             />
             {showMonthDropdown && (
-              <div className='dropdown'>
+              <div className='dropdown-menu'>
                 {yearOptions.map((option) => (
                   <div
                     key={option}

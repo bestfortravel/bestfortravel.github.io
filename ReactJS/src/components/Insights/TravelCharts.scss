@@ -52,36 +52,6 @@
             transform: rotate(180deg);
           }
         }
-
-        .dropdown {
-          position: absolute;
-          top: 120%;
-          right: 0;
-          background: #fff;
-          border: 1px solid #e2e8f0;
-          border-radius: 12px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-          z-index: 10;
-          width: 160px;
-
-          .dropdown-item {
-            padding: 8px 12px;
-            font-size: 14px;
-            color: #475569;
-            cursor: pointer;
-            transition: background 0.2s;
-
-            &:hover {
-              background: #f8fafc;
-            }
-
-            &.active {
-              background: #eef2ff;
-              color: #3730a3;
-              font-weight: 500;
-            }
-          }
-        }
       }
 
       &::before {
