@@ -28,7 +28,8 @@
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
     "eslint": "8.57.1",
-    "eslint-config-next": "14.2.3"
+    "eslint-config-next": "14.2.3",
+    "gh-pages": "^6.3.0"
   },
   "eslintConfig": {
     "extends": [
