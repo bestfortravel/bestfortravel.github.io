@@ -1,17 +1,9 @@
-# ReactJS
-ReactJS/node_modules
-ReactJS/package-lock.json
-ReactJS/build/*
-
-# NodeJS
-NodeJS
-NodeJS/*
-NodeJS/node_modules
-NodeJS/package-lock.json
+.next/*
+node_modules
+package-lock.json
 
 # dotenv environment variables file
 .env
 
 # Optional npm cache directory
 .npm
-ReactJS/build/*

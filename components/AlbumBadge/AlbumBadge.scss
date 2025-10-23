@@ -1,0 +1,27 @@
+.album-badge {
+  display: flex;
+  padding: 4px 8px;
+  align-items: center;
+  gap: 0;
+  border-radius: 8px;
+  background: #F7F7F8;
+  position: absolute;
+  left: 12px;
+  top: 12px;
+
+  .album-badge-wrap {
+    display: flex;
+    padding: 0 4px;
+    align-items: flex-start;
+    gap: 0;
+    border-radius: 0;
+
+    .album-badge-label {
+      color: #3F3F50;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+    }
+  }
+}

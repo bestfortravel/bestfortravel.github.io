@@ -1,0 +1,167 @@
+export const userVideos = [
+  {
+    src: './video/video1.mp4',
+    poster: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
+    userName: 'Sarah Hilton',
+    userAvatar: '/images/avatar.png',
+    location: 'Kuang Si Falls – Laos',
+		views: 1200,
+		likes: 752,
+		comments: 42,
+		shares: 24
+  },
+  {
+    src: './video/video2.mp4',
+    poster: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470',
+    userName: 'Leslie Alexander',
+    userAvatar: '/images/avatar.png',
+    location: 'Dubai, UAE',
+		views: 5000,
+		likes: 812,
+		comments: 123,
+		shares: 100
+  },
+  {
+    src: './video/video3.mp4',
+    poster: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee',
+    userName: 'Annette Black',
+    userAvatar: '/images/avatar.png',
+    location: 'Sahara Desert',
+		views: 500,
+		likes: 999,
+		comments: 111,
+		shares: 222
+  },
+  {
+    src: './video/video4.mp4',
+    poster: 'https://images.unsplash.com/photo-1517959105821-eaf5298c71f3',
+    userName: 'Ronald Richards',
+    userAvatar: '/images/avatar.png',
+    location: 'Kyoto, Japan',
+		views: 1000,
+		likes: 888,
+		comments: 555,
+		shares: 333
+  },
+  {
+    src: './video/video5.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 3333333,
+		likes: 1111111,
+		comments: 44444,
+		shares: 5555
+  },
+	{
+    src: './video/video6.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 888,
+		likes: 111,
+		comments: 55,
+		shares: 333
+  },
+	{
+    src: './video/video7.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 12,
+		likes: 111,
+		comments: 777,
+		shares: 99
+  },
+	{
+    src: './video/video8.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+    views: 11,
+		likes: 222,
+		comments: 333,
+		shares: 44
+  },
+	{
+    src: './video/video9.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 500000,
+		likes: 333,
+		comments: 444,
+		shares: 1
+  },
+	{
+    src: './video/video10.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 110000,
+		likes: 8888,
+		comments: 111,
+		shares: 333
+  },
+	{
+    src: './video/video11.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 1000,
+		likes: 111,
+		comments: 777,
+		shares: 99
+  },
+	{
+    src: './video/video12.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 888,
+		likes: 777,
+		comments: 555,
+		shares: 333
+  },
+	{
+    src: './video/video13.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 10,
+		likes: 3,
+		comments: 1,
+		shares: 8
+  },
+	{
+    src: './video/video14.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 99,
+		likes: 8,
+		comments: 7,
+		shares: 5
+  },
+	{
+    src: './video/video15.mp4',
+    poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
+    userName: 'Wade Warren',
+    userAvatar: '/images/avatar.png',
+    location: 'Cappadocia, Turkey',
+		views: 11,
+		likes: 22,
+		comments: 33,
+		shares: 55
+  },
+]
