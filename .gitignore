@@ -1,6 +1,7 @@
 .next/*
 node_modules
 package-lock.json
+out/
 
 # dotenv environment variables file
 .env

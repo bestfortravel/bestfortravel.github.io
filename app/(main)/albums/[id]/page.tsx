@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import albumsData from '@/data/albumsData.json';
@@ -7,6 +5,12 @@ import '@/styles/AlbumDetails.scss';
 
 interface AlbumPageProps {
   params: { id: string };
+}
+
+export function generateStaticParams() {
+  return albumsData.map((album) => ({
+    id: album.id.toString(),
+  }));
 }
 
 export default function AlbumDetailsPage({ params }: AlbumPageProps) {
