@@ -1,4 +1,5 @@
-/** @type {import('next').NextConfig} */
+const repoName = 'bestfortravel';
+
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',
@@ -13,19 +14,16 @@ const securityHeaders = [
   },
 ];
 
-// 👇 Replace with your actual GitHub repo name
-const repoName = 'bestfortravel'; // or whatever your repository name is
+export default {
+  output: 'export',
+  images: { unoptimized: true },
+  trailingSlash: true,
+  assetPrefix: '/',
+  basePath: '',
+  distDir: '.next',
+  compiler: { removeConsole: false },
 
-const nextConfig = {
-  output: 'export', // enables static export
-  basePath: `/${repoName}`, // required for GH Pages
-  images: {
-    unoptimized: true, // disables Next image optimization
-  },
   async headers() {
-    // These headers won't be used by GitHub Pages but safe to keep
     return [{ source: '/(.*)', headers: securityHeaders }];
   },
 };
-
-module.exports = nextConfig;

@@ -1,6 +1,6 @@
 export const userVideos = [
   {
-    src: './video/video1.mp4',
+    src: '/video/video1.mp4',
     poster: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
     userName: 'Sarah Hilton',
     userAvatar: '/images/avatar.png',
@@ -11,7 +11,7 @@ export const userVideos = [
 		shares: 24
   },
   {
-    src: './video/video2.mp4',
+    src: '/video/video2.mp4',
     poster: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470',
     userName: 'Leslie Alexander',
     userAvatar: '/images/avatar.png',
@@ -22,7 +22,7 @@ export const userVideos = [
 		shares: 100
   },
   {
-    src: './video/video3.mp4',
+    src: '/video/video3.mp4',
     poster: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee',
     userName: 'Annette Black',
     userAvatar: '/images/avatar.png',
@@ -33,7 +33,7 @@ export const userVideos = [
 		shares: 222
   },
   {
-    src: './video/video4.mp4',
+    src: '/video/video4.mp4',
     poster: 'https://images.unsplash.com/photo-1517959105821-eaf5298c71f3',
     userName: 'Ronald Richards',
     userAvatar: '/images/avatar.png',
@@ -44,7 +44,7 @@ export const userVideos = [
 		shares: 333
   },
   {
-    src: './video/video5.mp4',
+    src: '/video/video5.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -55,7 +55,7 @@ export const userVideos = [
 		shares: 5555
   },
 	{
-    src: './video/video6.mp4',
+    src: '/video/video6.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -66,7 +66,7 @@ export const userVideos = [
 		shares: 333
   },
 	{
-    src: './video/video7.mp4',
+    src: '/video/video7.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -77,7 +77,7 @@ export const userVideos = [
 		shares: 99
   },
 	{
-    src: './video/video8.mp4',
+    src: '/video/video8.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -88,7 +88,7 @@ export const userVideos = [
 		shares: 44
   },
 	{
-    src: './video/video9.mp4',
+    src: '/video/video9.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -99,7 +99,7 @@ export const userVideos = [
 		shares: 1
   },
 	{
-    src: './video/video10.mp4',
+    src: '/video/video10.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -110,7 +110,7 @@ export const userVideos = [
 		shares: 333
   },
 	{
-    src: './video/video11.mp4',
+    src: '/video/video11.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -121,7 +121,7 @@ export const userVideos = [
 		shares: 99
   },
 	{
-    src: './video/video12.mp4',
+    src: '/video/video12.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -132,7 +132,7 @@ export const userVideos = [
 		shares: 333
   },
 	{
-    src: './video/video13.mp4',
+    src: '/video/video13.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -143,7 +143,7 @@ export const userVideos = [
 		shares: 8
   },
 	{
-    src: './video/video14.mp4',
+    src: '/video/video14.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',
@@ -154,7 +154,7 @@ export const userVideos = [
 		shares: 5
   },
 	{
-    src: './video/video15.mp4',
+    src: '/video/video15.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
     userName: 'Wade Warren',
     userAvatar: '/images/avatar.png',

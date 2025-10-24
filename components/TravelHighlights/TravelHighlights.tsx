@@ -305,7 +305,7 @@ export default function TravelHighlights({ videos = [] }: TravelHighlightsProps)
                           <h4 className='comment-author-name'>{videos[activeVideo].userName}</h4>
                           <p className='comment-author-location'>
                             <span>
-                              <img className='comment-author-location-icon' src='./icons/location-grey.svg' alt='location-icon' />
+                              <img className='comment-author-location-icon' src='/icons/location-grey.svg' alt='location-icon' />
                             </span>
                             {videos[activeVideo].location}
                           </p>
