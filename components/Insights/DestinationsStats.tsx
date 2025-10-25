@@ -44,7 +44,7 @@ export default function DestinationsStats() {
   };
 
   return (
-    <div className='destinations-card'>
+    <div className='destinations-card section-to-fade'>
       <div className='header'>
         <h3>Destinations</h3>
       </div>

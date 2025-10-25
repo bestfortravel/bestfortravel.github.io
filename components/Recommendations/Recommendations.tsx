@@ -43,7 +43,7 @@ export default function Recommendations() {
   ];
 
   return (
-    <div className='wrapper recommendations-container'>
+    <div className='wrapper recommendations-container section-to-fade'>
       <div className='recommendations-header'>
         <h2 className='recommendations-title'>
           Other travellers you might be interested in

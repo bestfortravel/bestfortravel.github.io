@@ -32,7 +32,7 @@ export default function InsightsHeader({ user, travelStats }: Props) {
         <h2 className='page-title'>Insights</h2>
       </Link>
 
-      <div className='insights-header-container'>
+      <div className='insights-header-container section-to-fade'>
         <div className='header-left'>
           <div className='user-info'>
             <div className='avatar-wrapper'>
@@ -70,9 +70,9 @@ export default function InsightsHeader({ user, travelStats }: Props) {
             ))}
           </div>
 
-          <button className='next-button'>
+        	<Link className='next-button' href='/travelstats'>
             <img src='/icons/arrow-right.svg' alt='Next' />
-          </button>
+          </Link>
         </div>
       </div>
     </>

@@ -39,7 +39,7 @@ export default function RecentTrips() {
   ];
 
   return (
-    <div className='recent-trips-card'>
+    <div className='recent-trips-card section-to-fade'>
       <div className='header'>
         <h3>Recent Trips</h3>
       </div>

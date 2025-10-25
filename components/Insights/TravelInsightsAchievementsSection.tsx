@@ -28,7 +28,7 @@ export default function TravelInsightsAchievementsSection({
   return (
     <div className='insights-achievements-section'>
       {/* === Travel Insights === */}
-      <div className='travel-insights-section'>
+      <div className='travel-insights-section section-to-fade'>
         <div className='section-header'>
           <h3>Travel Insights</h3>
         </div>
@@ -46,7 +46,7 @@ export default function TravelInsightsAchievementsSection({
       </div>
 
       {/* === Travel Achievements === */}
-      <div className='achievements-section'>
+      <div className='achievements-section section-to-fade'>
         <div className='section-header'>
           <h3>Travel Achievements</h3>
         </div>

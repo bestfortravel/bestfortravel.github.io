@@ -6,7 +6,7 @@ import './Post.scss';
 
 export default function Post() {
   return (
-    <div className='wrapper post-container'>
+    <div className='wrapper post-container section-to-fade'>
       <div className='post-header'>
         <div className='post-title-section'>
           <div className='post-title'>Latest post</div>

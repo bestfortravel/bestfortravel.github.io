@@ -6,7 +6,7 @@ import '@/components/AlbumsSection/AlbumsSection.scss';
 
 export default function AlbumsSection() {
   return (
-    <div className='wrapper albums-section-wrapper'>
+    <div className='wrapper albums-section-wrapper section-to-fade'>
       <div className='albums-section-container'>
         <div className='albums-section-header'>
           <h2 className='albums-section-title'>Albums</h2>

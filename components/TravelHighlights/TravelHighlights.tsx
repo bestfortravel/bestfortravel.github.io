@@ -120,7 +120,7 @@ export default function TravelHighlights({ videos = [] }: TravelHighlightsProps)
   const formatNumber = (n: number) => n >= 1000 ? (n / 1000).toFixed(1) + 'K' : n.toString();
 
   return (
-    <div className='wrapper travel-highlights-wrapper'>
+    <div className='wrapper travel-highlights-wrapper section-to-fade'>
       <div className='travel-highlights'>
         <div className='section-header'>
           <div>

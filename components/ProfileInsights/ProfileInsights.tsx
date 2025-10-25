@@ -32,7 +32,7 @@ export default function ProfileInsights({
   ];
 
   return (
-    <div className='wrapper profile-insights'>
+    <div className='wrapper profile-insights section-to-fade'>
       <div className='insights-left'>
         <img
           src='/icons/badge-green.svg'

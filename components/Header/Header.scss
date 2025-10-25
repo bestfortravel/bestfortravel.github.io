@@ -88,11 +88,20 @@
 
   &.sticky {
     position: fixed;
+    height: 153px;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(180deg, #6884F4 0%, rgba(180, 192, 245, 0.00) 93.31%);
+    backdrop-filter: blur(0px);
+
+    @media (max-width: 768px) {
+      height: 120px;
+    }
   }
+}
+
+.section-to-fade {
+  transition: opacity 0.3s ease;
 }

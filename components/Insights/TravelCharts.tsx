@@ -167,7 +167,7 @@ export default function TravelCharts() {
   return (
     <div className='travel-charts'>
       {/* ===== Travel Frequency ===== */}
-      <div className='chart-card'>
+      <div className='chart-card section-to-fade'>
         <div className='chart-header'>
           <h3>Travel Frequency</h3>
           <div
@@ -242,7 +242,7 @@ export default function TravelCharts() {
       </div>
 
       {/* ===== Monthly Travel Pattern ===== */}
-      <div className='chart-card'>
+      <div className='chart-card section-to-fade'>
         <div className='chart-header'>
           <h3>Monthly Travel Pattern</h3>
           <div

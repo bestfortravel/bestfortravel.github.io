@@ -116,7 +116,7 @@ export default function CountriesCitiesSection({ countries = [], cities = [] }: 
   return (
     <div className='countries-cities-section'>
       {/* === COUNTRIES === */}
-      <div className='countries-section'>
+      <div className='countries-section section-to-fade'>
         <div className='section-header'>
           <h3>
             Countries <span className='count'>{countries.length}</span>
@@ -159,7 +159,7 @@ export default function CountriesCitiesSection({ countries = [], cities = [] }: 
       </div>
 
       {/* === CITIES === */}
-      <div className='cities-section'>
+      <div className='cities-section section-to-fade'>
         <div className='section-header'>
           <h3>
             Cities <span className='count'>{cities.length}</span>

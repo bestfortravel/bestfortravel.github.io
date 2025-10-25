@@ -220,7 +220,7 @@ const TravelMap = () => {
     });
   }, []);
 
-  return <div ref={mapContainer} className='wrapper travel-map-container' />;
+  return <div ref={mapContainer} className='wrapper travel-map-container section-to-fade' />;
 };
 
 export default TravelMap;

@@ -6,7 +6,7 @@ import Button from '@/components/Button/Button';
 
 export default function ProfileBanner() {
   return (
-    <div className='wrapper profile-container'>
+    <div className='wrapper profile-container section-to-fade'>
       <div className='profile-background'>
         <img
           className='profile-background-image'

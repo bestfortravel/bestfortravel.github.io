@@ -51,7 +51,7 @@ export default function InterestsSection() {
     ));
 
   return (
-    <div className='wrapper interests-section'>
+    <div className='wrapper interests-section section-to-fade'>
       {/* === Interests === */}
       <div className='interests-card'>
         <div className='card-header'>

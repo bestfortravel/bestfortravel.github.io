@@ -68,7 +68,7 @@ export default function Monuments() {
   );
 
   return (
-    <div className='wrapper monuments-wrapper'>
+    <div className='wrapper monuments-wrapper section-to-fade'>
       <div className='monuments-container'>
         <h2 className='monuments-title'>
           Top 5 rated historical monuments worth visiting
