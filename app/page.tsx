@@ -62,7 +62,6 @@ export default function HomePage() {
     const VALID_PASSWORD = 'Password1';
 
     if (email === VALID_EMAIL && password === VALID_PASSWORD) {
-    	// localStorage.setItem('token', 'fake-jwt-token');
 			Cookies.set('token', 'fake-jwt-token', { expires: 7 });
       router.push('/profile')
     } else {

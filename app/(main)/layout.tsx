@@ -3,6 +3,8 @@
 import { usePathname } from 'next/navigation';
 import Header from '@/components/Header/Header';
 
+import AuthGuard from '@/components/AuthGuard/AuthGuard';
+
 const fullWidthRoutes = ['/map', '/albums', '/insights'];
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
@@ -12,7 +14,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   return (
     <>
       {pathname !== '/' && <Header fullWidth={isFullWidth} />}
-      <div className='page-content'>{children}</div>
+      <div className='page-content'>
+        <AuthGuard>{children}</AuthGuard>;
+      </div>
     </>
   );
 }
