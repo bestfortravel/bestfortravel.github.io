@@ -2,7 +2,7 @@ export const userVideos = [
   {
     src: '/video/video1.mp4',
     poster: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
-    userName: 'Sarah Hilton',
+    userName: 'Leslie Alexander',
     userAvatar: '/images/avatar.png',
     location: 'Kuang Si Falls – Laos',
 		views: 1200,
@@ -24,7 +24,7 @@ export const userVideos = [
   {
     src: '/video/video3.mp4',
     poster: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee',
-    userName: 'Annette Black',
+    userName: 'Leslie Alexander',
     userAvatar: '/images/avatar.png',
     location: 'Sahara Desert',
 		views: 500,
@@ -35,7 +35,7 @@ export const userVideos = [
   {
     src: '/video/video4.mp4',
     poster: 'https://images.unsplash.com/photo-1517959105821-eaf5298c71f3',
-    userName: 'Ronald Richards',
+    userName: 'Leslie Alexander',
     userAvatar: '/images/avatar.png',
     location: 'Kyoto, Japan',
 		views: 1000,
@@ -46,7 +46,7 @@ export const userVideos = [
   {
     src: '/video/video5.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
-    userName: 'Wade Warren',
+    userName: 'Leslie Alexander',
     userAvatar: '/images/avatar.png',
     location: 'Cappadocia, Turkey',
 		views: 3333333,
@@ -57,7 +57,7 @@ export const userVideos = [
 	{
     src: '/video/video6.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
-    userName: 'Wade Warren',
+    userName: 'Leslie Alexander',
     userAvatar: '/images/avatar.png',
     location: 'Cappadocia, Turkey',
 		views: 888,
@@ -68,7 +68,7 @@ export const userVideos = [
 	{
     src: '/video/video7.mp4',
     poster: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e',
-    userName: 'Wade Warren',
+    userName: 'Leslie Alexander',
     userAvatar: '/images/avatar.png',
     location: 'Cappadocia, Turkey',
 		views: 12,
