@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Link from 'next/link';
 import '@/styles/TravelStats.scss';
 
@@ -19,7 +19,7 @@ interface TravelStat {
   companionSubText?: string; // "Top 3 companions" line
 }
 
-export default function TravelStatsPage(): JSX.Element {
+export default function TravelStatsPage(): ReactElement {
   const stats: TravelStat[] = [
     // Compact stats
     { icon: '/icons/current-residence.svg', label: 'Current Residence', value: 'Barcelona, Spain' },
