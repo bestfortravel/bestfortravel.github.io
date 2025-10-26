@@ -4,7 +4,7 @@
   justify-content: space-between;
   padding: 24px;
   transition: all 0.3s ease;
-  gap: 32px;
+  gap: 64px;
   flex-wrap: wrap;
   box-sizing: border-box;
   border-radius: 32px;
@@ -12,18 +12,13 @@
   position: relative;
   background-color: #fff;
 
-  @media (max-width: 900px) {
-    flex-direction: column;
+  @media (max-width: 1024px) {
+    gap: 0;
   }
 
-  @media (max-width: 768px) {
-    .insights-right {
-      .insights-grid {
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: start;
-      }
-    }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 16px;
   }
 
   @media (max-width: 600px) {
@@ -41,14 +36,17 @@
 
 .insight-item {
   text-align: center;
-  margin: 0 16px;
+  padding: 0 16px;
+  min-width: 83px;
+  box-sizing: border-box;
 
-  @media (max-width: 1000px) {
-    margin: 0 10px;
+  @media (max-width: 1024px) {
+    min-width: 64px;
+    padding: unset;
   }
 
   @media (max-width: 600px) {
-    margin: 0 6px 0 0;
+    min-width: max-content;
   }
 }
 
@@ -74,6 +72,7 @@
   align-items: center;
   gap: 16px;
   flex: 1;
+  max-width: 334px;
 
   .rank-badge {
     width: 48px;
@@ -131,10 +130,14 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  width: calc(100% - 398px);
+  justify-content: space-around;
 
   .insights-grid {
     display: flex;
     align-items: center;
+    width: calc(100% - 40px);
+    justify-content: space-around;
   }
 
   .arrow img {
@@ -148,7 +151,20 @@
     }
   }
 
+  @media (max-width: 1024px) {
+    width: calc(100% - 360px);
+  }
+
+  @media (max-width: 900px) {
+    width: 70%;
+  }
+
+  @media (max-width: 700px) {
+    width: 90%;
+  }
+
   @media (max-width: 600px) {
     gap: 5px;
+    width: 100%;
   }
 }
