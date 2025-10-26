@@ -45,10 +45,11 @@ h1, h2, h3, h4, h5, h6, p, a, span, div {
 .page-back-link {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	max-width: 125px;
+	justify-content: flex-start;
+	max-width: 200px;
 	text-decoration: none;
-  color: #1E293B;
+	color: #1E293B;
+	gap: 16px;
 
 	&:hover {
 		text-decoration: underline;
@@ -70,4 +71,16 @@ h1, h2, h3, h4, h5, h6, p, a, span, div {
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
+}
+
+.page-wrapper-card {
+	border-radius: 32px;
+	background: #fff;
+	box-shadow: 0 0 120px 0 rgba(71, 85, 105, 0.07);
+	padding: 32px;
+	box-sizing: border-box;
+
+	@media (max-width: 991px) {
+		padding: 20px;
+	}
 }

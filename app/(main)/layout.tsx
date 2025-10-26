@@ -15,7 +15,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     <>
       {pathname !== '/' && <Header fullWidth={isFullWidth} />}
       <div className='page-content'>
-        <AuthGuard>{children}</AuthGuard>;
+        <AuthGuard>{children}</AuthGuard>
       </div>
     </>
   );
