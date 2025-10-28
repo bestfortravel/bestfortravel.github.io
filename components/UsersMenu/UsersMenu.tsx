@@ -10,18 +10,50 @@ type Props = {
   onClose: () => void;
 };
 
+type UserAccount = {
+  id: string;
+  name: string;
+  email: string;
+  avatar: string;
+  isBusiness?: boolean;
+  showSwitch?: boolean;
+};
+
 export default function UsersMenu({ open, onClose }: Props) {
   const cardRef = useRef<HTMLDivElement | null>(null);
-  const [selectedUser, setSelectedUser] = useState<'user1' | 'user2'>('user1');
+  const [selectedUser, setSelectedUser] = useState<string>('user1');
+
+  // ✅ Centralized list for backend integration
+  const users: UserAccount[] = [
+    {
+      id: 'user1',
+      name: 'Ralph Edwards',
+      email: 'r.edwards2000@gmail.com',
+      avatar: '/images/avatar.png',
+      showSwitch: true,
+    },
+    {
+      id: 'user2',
+      name: 'Villa De `Marco',
+      email: 'villademarco@gmail.com',
+      avatar: '/images/VillaDeMarco.png',
+      isBusiness: true,
+    },
+    {
+      id: 'user3',
+      name: 'BestForTravel',
+      email: 'bf@travel.com',
+      avatar: '/images/Logo 200x200.png',
+      isBusiness: true,
+    }
+  ];
 
   useEffect(() => {
     if (!open) return;
 
     const handleKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     const handleClick = (e: MouseEvent) => {
-      if (cardRef.current && !cardRef.current.contains(e.target as Node)) {
-        onClose();
-      }
+      if (cardRef.current && !cardRef.current.contains(e.target as Node)) onClose();
     };
 
     document.addEventListener('keydown', handleKey);
@@ -37,61 +69,55 @@ export default function UsersMenu({ open, onClose }: Props) {
     <div className={`usersmenu-overlay ${open ? 'open' : ''}`} aria-hidden={!open}>
       <div className='usersmenu-card' ref={cardRef} role='dialog' aria-modal='true'>
 
-        {/* User 1 */}
-        <label className={`usersmenu-user ${selectedUser === 'user1' ? 'selected' : ''}`}>
-          <input
-            type='radio'
-            name='userAccount'
-            checked={selectedUser === 'user1'}
-            onChange={() => setSelectedUser('user1')}
-            className='usersmenu-radio-input'
-          />
-          <div className='usersmenu-user-left'>
-            <img className='usersmenu-avatar' src='/images/avatar.png' alt='' />
-            <div className='usersmenu-user-meta'>
-              <div className='usersmenu-name'>Ralph Edwards</div>
-              <div className='usersmenu-email'>r.edwards2000@gmail.com</div>
-              <button className='usersmenu-switch'>Switch to Business</button>
+        {/* ✅ Dynamic users list */}
+        {users.map((user) => (
+          <label
+            key={user.id}
+            className={`usersmenu-user ${selectedUser === user.id ? 'selected' : ''}`}
+          >
+            <input
+              type='radio'
+              name='userAccount'
+              checked={selectedUser === user.id}
+              onChange={() => setSelectedUser(user.id)}
+              className='usersmenu-radio-input'
+            />
+
+            <div className='usersmenu-user-left'>
+              <img className='usersmenu-avatar' src={user.avatar} alt={user.name} />
+              <div className='usersmenu-user-meta'>
+                <div className='usersmenu-name'>{user.name}</div>
+                <div className='usersmenu-email'>{user.email}</div>
+
+                {user.showSwitch && (
+                  <button className='usersmenu-switch'>Switch to Business</button>
+                )}
+              </div>
             </div>
-          </div>
-          <span className='usersmenu-radio-visual' />
-        </label>
 
-        {/* User 2 */}
-        <label className={`usersmenu-user ${selectedUser === 'user2' ? 'selected' : ''}`}>
-          <input
-            type='radio'
-            name='userAccount'
-            checked={selectedUser === 'user2'}
-            onChange={() => setSelectedUser('user2')}
-            className='usersmenu-radio-input'
-          />
-          <div className='usersmenu-user-left'>
-            <img className='usersmenu-avatar' src='/images/VillaDeMarco.png' alt='' />
-            <div className='usersmenu-user-meta'>
-              <div className='usersmenu-name'>Villa De `Marco</div>
-              <div className='usersmenu-email'>villademarco@gmail.com</div>
-            </div>
-          </div>
-          <span className='usersmenu-radio-visual' />
-        </label>
+            <span className='usersmenu-radio-visual' />
+          </label>
+        ))}
 
-				<div className='usermenu-buttons'>
-					<Button color='primary' type='submit'>
-						<span className='usersmenu-btn-plus'></span> Add account
-					</Button>
-					<Button color='secondary' type='submit'>
-						Logout
-					</Button>
-				</div>
+        {/* Buttons */}
+        <div className='usermenu-buttons'>
+          <Button color='primary' type='button'>
+            <span className='usersmenu-btn-plus'></span> Add account
+          </Button>
 
+          <Button color='secondary' type='button'>
+            Logout
+          </Button>
+        </div>
+
+        {/* Footer links */}
         <div className='usermenu-footer-links'>
-					<Link href='/privacy' className='usermenu-footer-link'>
-						Privacy policy
-					</Link>
-					<Link href='/terms' className='usermenu-footer-link'>
-						Terms and conditions
-					</Link>
+          <Link href='/privacy' className='usermenu-footer-link'>
+            Privacy policy
+          </Link>
+          <Link href='/terms' className='usermenu-footer-link'>
+            Terms and conditions
+          </Link>
         </div>
 
       </div>

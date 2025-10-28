@@ -13,6 +13,7 @@
   box-shadow: 0 0 120px 0 rgba(71, 85, 105, 0.07);
   margin: 16px 0;
   transition: padding 0.3s ease;
+  position: relative;
 
   @media (max-width: 640px) {
     padding: 16px 20px;
