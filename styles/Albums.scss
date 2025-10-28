@@ -98,7 +98,6 @@
       color: #1E293B;
       text-align: center;
       font-size: 16px;
-      font-style: normal;
       font-weight: 400;
       line-height: 26px;
 
@@ -315,7 +314,7 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(4px);
-  z-index: 50;
+  z-index: 6;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -419,9 +418,7 @@
 
     .category-title {
       color: #1E293B;
-      font-family: Inter;
       font-size: 20px;
-      font-style: normal;
       font-weight: 500;
       line-height: 28px;
       margin: 0;
@@ -430,7 +427,6 @@
     .see-all {
       color: #002FFF;
       font-size: 14px;
-      font-style: normal;
       font-weight: 500;
       line-height: 20px;
       padding-right: 32px;

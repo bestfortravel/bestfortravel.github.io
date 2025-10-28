@@ -46,7 +46,7 @@
 
 .marker-tooltip {
   position: absolute;
-  z-index: 999;
+  z-index: 9;
   pointer-events: none;
   opacity: 0;
   transform: translateY(4px);
@@ -97,7 +97,6 @@
 				font-size: 14px;
 				color: #1E293B;
 				margin-bottom: 6px;
-				font-style: normal;
 				line-height: normal;
 			}
 
@@ -112,9 +111,7 @@
 				> span {
 					color:#475569;
 					text-overflow: ellipsis;
-					font-family: Inter;
 					font-size: 12px;
-					font-style: normal;
 					font-weight: 400;
 					margin-top: 2px;
 				}

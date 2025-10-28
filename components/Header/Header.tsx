@@ -4,6 +4,7 @@ import './Header.scss';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import UsersMenu from '../UsersMenu/UsersMenu';
 
 interface HeaderProps {
   fullWidth?: boolean;
@@ -11,59 +12,44 @@ interface HeaderProps {
 
 export default function Header({ fullWidth = false }: HeaderProps) {
   const [isSticky, setIsSticky] = useState(false);
+  const [isUsersMenuOpen, setIsUsersMenuOpen] = useState(false);
   const pathname = usePathname();
 
-useEffect(() => {
-  const header = document.querySelector('.header-wrapper');
-  if (!header) return;
+  useEffect(() => {
+    const header = document.querySelector('.header-wrapper');
+    if (!header) return;
 
-  const HEADER_HEIGHT = 153;
-  const FADE_TRIGGER_OFFSET = 130; // fade only when ~130px of section remains visible
+    const HEADER_HEIGHT = 153;
+    const FADE_TRIGGER_OFFSET = 130;
 
-  const handleScroll = () => {
-    const sticky = window.scrollY > 0;
-    setIsSticky(sticky);
+    const handleScroll = () => {
+      const sticky = window.scrollY > 0;
+      setIsSticky(sticky);
 
-    const sections = Array.from(
-      document.querySelectorAll<HTMLElement>('.section-to-fade')
-    );
+      const sections = Array.from(
+        document.querySelectorAll<HTMLElement>('.section-to-fade')
+      );
 
-    if (!sticky) {
-      sections.forEach((s) => (s.style.opacity = '1'));
-      return;
-    }
-
-    const headerRect = header.getBoundingClientRect();
-
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-
-      const sectionTop = rect.top;
-      const sectionBottom = rect.bottom;
-      const windowHeight = window.innerHeight;
-
-      // Section fully below viewport? reset
-      if (sectionTop > windowHeight) {
-        section.style.opacity = '1';
+      if (!sticky) {
+        sections.forEach((s) => (s.style.opacity = '1'));
         return;
       }
 
-      // Compute how much of the section remains visible
-      const visiblePart = sectionBottom - HEADER_HEIGHT;
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const visiblePart = rect.bottom - HEADER_HEIGHT;
+        const shouldFade =
+          visiblePart <= FADE_TRIGGER_OFFSET && rect.bottom > 0;
 
-      // Fade only when the section is nearly scrolled out (130px visible or less)
-      const shouldFade = visiblePart <= FADE_TRIGGER_OFFSET && sectionBottom > 0;
+        section.style.transition = 'opacity 0.25s ease';
+        section.style.opacity = shouldFade ? '0.7' : '1';
+      });
+    };
 
-      section.style.transition = 'opacity 0.25s ease';
-      section.style.opacity = shouldFade ? '0.7' : '1';
-    });
-  };
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
-
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (path: string) => pathname.startsWith(path);
 
@@ -72,6 +58,7 @@ useEffect(() => {
       <div className={fullWidth ? 'wrapper-full-width' : 'wrapper'}>
         <header>
           <div className='header-inner'>
+
             {/* Logo */}
             <div className='logo-wrapper'>
               <Link className='header-link' href='/feed'>
@@ -107,16 +94,21 @@ useEffect(() => {
               </Link>
             </div>
 
-            {/* Avatar */}
-            <div className='avatar-wrapper'>
-              <Link className='profile' href='/profile'>
-                <img
-                  className='avatar-small'
-                  src='/images/avatar.png'
-                  alt='Profile'
-                />
-              </Link>
+            {/* Avatar → opens Users Menu */}
+            <div
+              className='avatar-wrapper'
+              onClick={() => setIsUsersMenuOpen((prev) => !prev)}
+            >
+              <img
+                className='avatar-small'
+                src='/images/avatar.png'
+                alt='Profile'
+              />
             </div>
+
+            {/* Users Menu */}
+            <UsersMenu open={isUsersMenuOpen} onClose={() => setIsUsersMenuOpen(false)} />
+
           </div>
         </header>
       </div>
