@@ -15,6 +15,10 @@
   transition: padding 0.3s ease;
   position: relative;
 
+  &.mega-menu-active {
+    border-radius: 20px 20px 0 0 ;
+  }
+
   @media (max-width: 640px) {
     padding: 16px 20px;
   }
@@ -31,6 +35,10 @@
       line-height: 22px;
       color: #1E293B;
       text-decoration: none;
+  }
+
+  @media (max-width: 640px) {
+    display: none;
   }
 
   .header-link {
@@ -105,8 +113,6 @@
   transition: opacity 0.3s ease;
 }
 
-/* Keep your existing styles; just add these helpers */
-
 .avatar-wrapper {
   display: flex;
   align-items: center;
@@ -117,4 +123,42 @@
   padding: 0;
   background: transparent;
   cursor: pointer;
+}
+
+/* Right cluster (avatar + hamburger) */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar-trigger,
+.hamburger-trigger {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.hamburger-trigger {
+  width: 40px;
+  height: 40px;
+
+  &.open {
+    border-radius: 100%;
+    background: #F8FAFC;
+  }
+}
+.header-hamburger-trigger-icon {
+  &.hamburger {
+    width: 24px;
+    height: 24px;
+  }
+
+  &.close {
+    width: 15px;
+    height: 15px;
+  }
 }

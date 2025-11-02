@@ -1,0 +1,134 @@
+{
+  "menu": {
+    "explore": "Entdecken",
+    "map": "Karte",
+    "trips": "Reisen",
+    "albums": "Alben",
+    "friends": "Freunde",
+    "insights": "Statistiken",
+    "groups": "Gruppen",
+    "community": "Community",
+    "settings": "Einstellungen & Datenschutz",
+    "help": "Hilfe-Center",
+    "back": "Zurück"
+  },
+  "explore": {
+    "title": "Entdecken",
+    "description": "Entdecke Geschichten, Tipps und Inspiration aus allen Ecken der Welt – von Familienreisen und Traumzielen bis zu Begegnungen mit Wildtieren und spannenden Reise-Challenges.",
+    "weddings": "Hochzeiten",
+    "kids": "Reisen mit Kindern",
+    "news": "Neuigkeiten & Updates",
+    "posts": "Beiträge von Reisenden",
+    "animals": "Tiere & Wildnis",
+    "reels": "Reels & Kurzvideos",
+    "compare": "Ziele vergleichen",
+    "challenges": "Reise-Challenges",
+    "dreams": "Traumziele"
+  },
+  "map": {
+    "title": "Karte",
+    "description": "Erkunde die Welt auf einer interaktiven Karte – entdecke Menschen, Orte, Unterkünfte und Erlebnisse sowie Tipps, Restaurants und Film-Drehorte.",
+    "people": "Menschen",
+    "places": "Orte",
+    "stays": "Unterkünfte",
+    "activities": "Aktivitäten",
+    "food": "Restaurants & Cafés",
+    "movies": "Filme",
+    "tips": "Tipps & Lifehacks"
+  },
+  "trips": {
+    "title": "Reisen",
+    "description": "Plane, verfolge und teile deine Abenteuer – erstelle neue Routen, entdecke Vorschläge und erhalte personalisierte Reiseempfehlungen.",
+    "create": "Neue Reise erstellen",
+    "mine": "Meine Reisen",
+    "shared": "Geteilte Reisen",
+    "suggested": "Empfohlene Reisen",
+    "recommender": "Reiseempfehlung"
+  },
+  "albums": {
+    "title": "Alben",
+    "description": "Sammle und teile deine Reiseerinnerungen – erstelle neue Alben, schaue dir vergangene Reisen an und entdecke Alben deiner Freunde.",
+    "create": "Neues Album erstellen",
+    "mine": "Meine Alben",
+    "friends": "Alben von Freunden",
+    "shared": "Geteilte Alben",
+    "archived": "Archivierte Reisen",
+    "tagItaly": "Italien"
+  },
+  "friends": {
+    "title": "Freunde",
+    "description": "Suche nach Freunden, sieh blockierte Benutzer, vergleiche deine Reisen und finde neue Kontakte.",
+    "compare": "Reisen vergleichen",
+    "all": "Meine Freunde",
+    "requests": "Freundschaftsanfragen",
+    "blocked": "Blockierte Benutzer",
+    "search": "Reisende suchen",
+    "suggested": "Vorgeschlagene Kontakte"
+  },
+  "insights": {
+    "title": "Statistiken",
+    "description": "Sieh dir deine Reisestatistiken, Jahresrückblicke, Abzeichen und Erfolge an.",
+    "stats": "Reisestatistik",
+    "summary": "Jahresrückblick",
+    "leaderboards": "Ranglisten",
+    "badges": "Abzeichen & Erfolge"
+  },
+  "groups": {
+    "title": "Gruppen",
+    "description": "Sieh empfohlene und beliebte Gruppen, erstelle eigene und verwalte sie.",
+    "popular": "Beliebt",
+    "your": "Deine Gruppen",
+    "create": "Neue Gruppe erstellen",
+    "manage": "Gruppe verwalten",
+    "suggested": "Empfohlene Gruppen"
+  },
+  "community": {
+    "title": "Community",
+    "description": "Lies lokale Nachrichten, Updates von Freunden und der Community. Entdecke die besten Tipps, lokale Guides und nimm an Umfragen teil.",
+    "feed": "Beiträge & Feed",
+    "tips": "Beste Tipps",
+    "traveler": "Reisender des Monats",
+    "guides": "Lokale Guides",
+    "polls": "Umfragen / Reise Q&A"
+  },
+  "settings": {
+    "title": "Einstellungen & Datenschutz",
+    "blurb": "Verwalte dein Konto und passe dein Erlebnis an – ändere Sprache und Währung, bearbeite Profilinformationen, steuere deine Privatsphäre und Benachrichtigungen.",
+    "links": {
+      "settings": "Einstellungen",
+      "account": "Kontoinformationen",
+      "privacy": "Datenschutzeinstellungen",
+      "notifications": "Benachrichtigungseinstellungen"
+    },
+    "preferences": "Einstellungen",
+    "currency": "Währung",
+    "language": "Sprache"
+  },
+  "help": {
+    "title": "Hilfe",
+    "description": "Wir sind für dich da.",
+    "contacts": "Kontaktiere uns",
+    "report": "Problem melden",
+    "faq": "FAQ & Wissensdatenbank",
+    "forum": "Community-Hilfeforum"
+  },
+  "ai": {
+    "title": "KI-Reiseassistent",
+    "description": "Unsere intelligente Plattform hilft dir, dein nächstes Abenteuer zu planen."
+  },
+  "common": {
+    "comingSoon": "Bald verfügbar"
+  },
+  "lang": {
+    "english": "Englisch",
+    "ukrainian": "Ukrainisch",
+    "german": "Deutsch",
+    "russian": "Russisch"
+  },
+  "curr": {
+    "usd": "USD",
+    "eur": "EUR",
+    "gbp": "GBP",
+    "cad": "CAD"
+  }
+}

@@ -147,7 +147,7 @@ export default function TravelHighlights({ videos = [] }: TravelHighlightsProps)
               breakpoints={{
                 0: { slidesPerView: 1.3, spaceBetween: 5 },
                 768: { slidesPerView: 2.2, spaceBetween: 10 },
-                1024: { slidesPerView: 3.5, spaceBetween: 12 },
+                1024: { slidesPerView: 3.4, spaceBetween: 12 },
               }}
               className='highlights-swiper'
             >

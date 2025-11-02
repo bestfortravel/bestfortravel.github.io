@@ -1,0 +1,134 @@
+{
+  "menu": {
+    "explore": "Explore",
+    "map": "Map",
+    "trips": "Trips",
+    "albums": "Albums",
+    "friends": "Friends",
+    "insights": "Insights",
+    "groups": "Groups",
+    "community": "Community",
+    "settings": "Settings & Privacy",
+    "help": "Help Centre",
+    "back": "Back"
+  },
+  "explore": {
+    "title": "Explore",
+    "description": "Discover stories, tips, and inspiration from every corner of the world — from family trips and dream destinations to wildlife encounters and travel challenges",
+    "weddings": "Weddings",
+    "kids": "Traveling with Kids",
+    "news": "News & Updates",
+    "posts": "Posts from Travelers",
+    "animals": "Animals / Wildlife",
+    "reels": "Reels & Short Videos",
+    "compare": "Compare Destinations",
+    "challenges": "Travel Challenges",
+    "dreams": "Dream Destinations"
+  },
+  "map": {
+    "title": "Map",
+    "description": "Explore the world through an interactive map — discover people, places, stays, and experiences, along with tips, food spots, and even movie locations.",
+    "people": "People",
+    "places": "Places",
+    "stays": "Stays",
+    "activities": "Activities",
+    "food": "Restaurants & Food Spots",
+    "movies": "Movies",
+    "tips": "Tips & Lifehacks"
+  },
+  "trips": {
+    "title": "Trips",
+    "description": "Plan, track, and share your adventures — create new routes, explore suggestions, and get personalized trip recommendations",
+    "create": "Create New Trip",
+    "mine": "My Trips",
+    "shared": "Shared Trips",
+    "suggested": "Suggested Trips",
+    "recommender": "Next Trip Recommender"
+  },
+  "albums": {
+    "title": "Albums",
+    "description": "Collect and share your travel moments — create new albums, revisit past trips, and explore memories from friends",
+    "create": "Create New",
+    "mine": "My Albums",
+    "friends": "Friends' Albums",
+    "shared": "Shared Albums",
+    "archived": "Archived Trips",
+    "tagItaly": "Italy"
+  },
+  "friends": {
+    "title": "Friends",
+    "description": "Search for friends, see blocked users, compare your travels, see suggested users",
+    "compare": "Compare Travels",
+    "all": "My Friends",
+    "requests": "Requests",
+    "blocked": "Blocked Users",
+    "search": "Search Travelers",
+    "suggested": "Suggested Connections"
+  },
+  "insights": {
+    "title": "Insights",
+    "description": "See your travel statistics, yearly summary, your Badges and Achievements",
+    "stats": "Travel Stats",
+    "summary": "Yearly Summary",
+    "leaderboards": "Leaderboards",
+    "badges": "Badges & Achievements"
+  },
+  "groups": {
+    "title": "Groups",
+    "description": "Review suggested and popular groups, create your own group(s) and manage your group(s)",
+    "popular": "Popular",
+    "your": "Your Groups",
+    "create": "Create New Group",
+    "manage": "Manage Group",
+    "suggested": "Suggested Groups"
+  },
+  "community": {
+    "title": "Community",
+    "description": "Check local news, updaes from your friends & community. See best tips, Local guides and take a travel survey",
+    "feed": "Posts & Feed",
+    "tips": "Best Tips",
+    "traveler": "Traveler of the Month",
+    "guides": "Local Guides",
+    "polls": "Polls / Travel Q&A"
+  },
+  "settings": {
+    "title": "Settings & Privacy",
+    "blurb": "Manage your account and personalize your experience — update language and currency, edit profile info, control privacy, and adjust notifications",
+    "links": {
+      "settings": "Settings",
+      "account": "Account Info",
+      "privacy": "Privacy Controls",
+      "notifications": "Notifications Preferences"
+    },
+    "preferences": "Preferences",
+    "currency": "Currency",
+    "language": "Language"
+  },
+  "help": {
+    "title": "Help",
+    "description": "We're here to help",
+    "contacts": "Contact us",
+    "report": "Report and Issue",
+    "faq": "FAQ & Knowledge Base",
+    "forum": "Community Help Forum"
+  },
+  "ai": {
+    "title": "AI Travel Assistant",
+    "description": "Our smart platform helps bring your next journey to life"
+  },
+  "common": {
+    "comingSoon": "Content coming soon"
+  },
+  "lang": {
+    "english": "English",
+    "ukrainian": "Ukrainian",
+    "german": "German",
+    "russian": "Russian"
+  },
+  "curr": {
+    "usd": "USD",
+    "eur": "EUR",
+    "gbp": "GBP",
+    "cad": "CAD"
+  }
+}
