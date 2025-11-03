@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './MegaMenu.scss';
 import { useI18n } from '@/components/Translation/TranslationProvider';
-import Link from 'next/link';
+import MegaMenuSection from './MegaMenuSection';
 
 type Props = {
   open: boolean;
@@ -176,339 +176,199 @@ export default function MegaMenu({ open, onClose }: Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLangKey]);
 
-  const renderRightFor = (key: string) => {
-    if (key === 'explore') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero'>
-            <div className='mega-hero-img-wrapper'>
-              <img className='mega-hero-img' src='/images/explore-hero.jpg' alt='explore-hero' />
-            </div>
-            <div className='mega-hero-text'>
-              <div className='mega-hero-title'>{t('explore.title')}</div>
-              <div className='mega-hero-desc'>{t('explore.description')}</div>
-            </div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {EXPLORE_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                {r.href && r.href.length && r.href.length > 0 ? (
-                  <Link
-                    className='mega-right-item-link'
-                    href={r.href}
-                    onClick={() => {onClose();}}
-                  >
-                    <img className='mega-right-icon' src={r.icon} alt='' />
-                    <span>{t(r.key)}</span>
-                  </Link>
-                ) : (
-                  <>
-                    <img className='mega-right-icon' src={r.icon} alt='' />
-                    <span>{t(r.key)}</span>
-                  </>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-    if (key === 'map') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero'>
-            <div className='mega-hero-img-wrapper'>
-              <img className='mega-hero-img' src='/images/map-hero.jpg' alt='map-hero' />
-            </div>
-            <div className='mega-hero-text'>
-              <div className='mega-hero-title'>{t('map.title')}</div>
-              <div className='mega-hero-desc'>{t('map.description')}</div>
-            </div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {MAP_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className='mega-right-strip'>
-            <div className='strip-card'>
-              <img src='/images/villa1.jpg' alt='' />
-              <div className='strip-meta'>
-                <div className='strip-title'>Villa DE `Marco</div>
-                <div className='strip-sub'>Santorini, Greece</div>
-                <div className='strip-price'>$180/night</div>
-              </div>
-            </div>
-            <div className='strip-card'>
-              <img src='/images/villa2.jpg' alt='' />
-              <div className='strip-meta'>
-                <div className='strip-title'>Sunset Villa Oia</div>
-                <div className='strip-sub'>Santorini, Greece</div>
-                <div className='strip-price'>$250/night</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (key === 'trips') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero'>
-            <div className='mega-hero-img-wrapper'>
-              <img className='mega-hero-img' src='/images/trip-hero.jpg' alt='trip-hero' />
-            </div>
-            <div className='mega-hero-text'>
-              <div className='mega-hero-title'>{t('trips.title')}</div>
-              <div className='mega-hero-desc'>{t('trips.description')}</div>
-            </div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {TRIPS_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-    if (key === 'albums') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero'>
-            <div className='mega-hero-img-wrapper'>
-              <img className='mega-hero-img' src='/images/albums-hero.jpg' alt='' />
-            </div>
-            <div className='mega-hero-text'>
-              <div className='mega-hero-title'>{t('albums.title')}</div>
-              <div className='mega-hero-desc'>{t('albums.description')}</div>
-            </div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {ALBUMS_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-    if (key === 'friends') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero'>
-            <div className='mega-hero-img-wrapper'>
-              <img className='mega-hero-img' src='/images/friends-hero.jpg' alt='friends-hero' />
-            </div>
-            <div className='mega-hero-text'>
-              <div className='mega-hero-title'>{t('friends.title')}</div>
-              <div className='mega-hero-desc'>{t('friends.description')}</div>
-            </div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {FRIENDS_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-    if (key === 'insights') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero'>
-            <div className='mega-hero-img-wrapper'>
-              <img className='mega-hero-img' src='/images/insights-hero.jpg' alt='insights-hero' />
-            </div>
-            <div className='mega-hero-text'>
-              <div className='mega-hero-title'>{t('insights.title')}</div>
-              <div className='mega-hero-desc'>{t('insights.description')}</div>
-            </div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {INSIGHTS_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                {r.href && r.href.length && r.href.length > 0 ? (
-                  <Link
-                    className='mega-right-item-link'
-                    href={r.href}
-                    onClick={() => {onClose();}}
-                  >
-                    <img className='mega-right-icon' src={r.icon} alt='' />
-                    <span>{t(r.key)}</span>
-                  </Link>
-                ) : (
-                  <>
-                    <img className='mega-right-icon' src={r.icon} alt='' />
-                    <span>{t(r.key)}</span>
-                  </>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-    if (key === 'groups') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero'>
-            <div className='mega-hero-img-wrapper'>
-              <img className='mega-hero-img' src='/images/groups-hero.jpg' alt='groups-hero' />
-            </div>
-            <div className='mega-hero-text'>
-              <div className='mega-hero-title'>{t('groups.title')}</div>
-              <div className='mega-hero-desc'>{t('groups.description')}</div>
-            </div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {GROUPS_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-    if (key === 'community') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero'>
-            <div className='mega-hero-img-wrapper'>
-              <img className='mega-hero-img' src='/images/community-hero.jpg' alt='community-hero' />
-            </div>
-            <div className='mega-hero-text'>
-              <div className='mega-hero-title'>{t('community.title')}</div>
-              <div className='mega-hero-desc'>{t('community.description')}</div>
-            </div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {COMMUNITY_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
-    if (key === 'settings') {
-      return (
-        <div className='mega-right-body'>
-          <div className='mega-hero-no-image'>
-            <div className='mega-hero-title'>{t('settings.title')}</div>
-            <div className='mega-hero-desc'>{t('settings.blurb')}</div>
-          </div>
-
-          <ul className='mega-right-list'>
-            {SETTINGS_LINKS.map((it) => (
-              <li key={it.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={it.icon} alt='' />
-                <span>{t(it.key)}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div className='settings-grid'>
-            <div className='pref-card'>
-              <div className='pref-title'>{t('settings.currency')}</div>
-              <div className='pref-box'>
-                {CURRENCIES.map((cur) => (
-                  <label key={cur} className={`pref-option ${selectedCurrency === cur ? 'active': ''}`}>
-                    <input
-                      type='radio'
-                      name='currency'
-                      value={cur}
-                      checked={selectedCurrency === cur}
-                      onChange={() => setSelectedCurrency(cur)}
-                    />
-                    <span className='pref-text'>{t(cur)}</span>
-                    <span className='pref-radio' aria-hidden />
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div className='pref-card'>
-              <div className='pref-title'>{t('settings.language')}</div>
-              <div className='pref-box'>
-                {LANG_KEYS.map((lngKey) => (
-                  <label key={lngKey} className='pref-option'>
-                    <input
-                      type='radio'
-                      name='language'
-                      value={lngKey}
-                      checked={selectedLangKey === lngKey}
-                      onChange={() => setSelectedLangKey(lngKey)}
-                    />
-                    <span className='pref-text'>{t(lngKey)}</span>
-                    <span className='pref-radio' aria-hidden />
-                  </label>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (key === 'help') {
-      return (
-        <div className='mega-right-body'>
-
-
-          <ul className='mega-right-list'>
-            {HELP_RIGHT.map((r) => (
-              <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      );
-    }
-
+  const renderSettingsSection = () => {
     return (
-      <div className='mega-right-placeholder'>
-        <div className='placeholder-title'>
-          {/* Fallback: try menu label key by active key */}
-          {t(`menu.${key}`)}
+      <div className='mega-right-body'>
+        <div className='mega-hero-no-image'>
+          <div className='mega-hero-title'>{t('settings.title')}</div>
+          <div className='mega-hero-desc'>{t('settings.blurb')}</div>
         </div>
-        <div className='placeholder-sub'>{t('common.comingSoon')}</div>
+
+        <ul className='mega-right-list'>
+          {SETTINGS_LINKS.map((it) => (
+            <li key={it.key} className='mega-right-item'>
+              <img className='mega-right-icon' src={it.icon} alt='' />
+              <span>{t(it.key)}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className='settings-grid'>
+          <div className='pref-card'>
+            <div className='pref-title'>{t('settings.currency')}</div>
+            <div className='pref-box'>
+              {CURRENCIES.map((cur) => (
+                <label key={cur} className={`pref-option ${selectedCurrency === cur ? 'active': ''}`}>
+                  <input
+                    type='radio'
+                    name='currency'
+                    value={cur}
+                    checked={selectedCurrency === cur}
+                    onChange={() => setSelectedCurrency(cur)}
+                  />
+                  <span className='pref-text'>{t(cur)}</span>
+                  <span className='pref-radio' aria-hidden />
+                </label>
+              ))}
+            </div>
+          </div>
+
+          <div className='pref-card'>
+            <div className='pref-title'>{t('settings.language')}</div>
+            <div className='pref-box'>
+              {LANG_KEYS.map((lngKey) => (
+                <label key={lngKey} className='pref-option'>
+                  <input
+                    type='radio'
+                    name='language'
+                    value={lngKey}
+                    checked={selectedLangKey === lngKey}
+                    onChange={() => setSelectedLangKey(lngKey)}
+                  />
+                  <span className='pref-text'>{t(lngKey)}</span>
+                  <span className='pref-radio' aria-hidden />
+                </label>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
+
+  const renderRightFor = (key: string) => {
+    switch (key) {
+      case 'explore':
+        return (
+          <MegaMenuSection
+            heroImage='/images/explore-hero.jpg'
+            titleKey='explore.title'
+            descKey='explore.description'
+            items={EXPLORE_RIGHT}
+            onClose={onClose}
+          />
+        );
+
+      case 'map':
+        return (
+          <MegaMenuSection
+            heroImage='/images/map-hero.jpg'
+            titleKey='map.title'
+            descKey='map.description'
+            items={MAP_RIGHT}
+            onClose={onClose}
+            extraContent={
+              <div className='mega-right-strip'>
+                <div className='strip-card'>
+                  <img src='/images/villa1.jpg' alt='' />
+                  <div className='strip-meta'>
+                    <div className='strip-title'>Villa DE Marco</div>
+                    <div className='strip-sub'>Santorini, Greece</div>
+                    <div className='strip-price'>$180/night</div>
+                  </div>
+                </div>
+                <div className='strip-card'>
+                  <img src='/images/villa2.jpg' alt='' />
+                  <div className='strip-meta'>
+                    <div className='strip-title'>Sunset Villa Oia</div>
+                    <div className='strip-sub'>Santorini, Greece</div>
+                    <div className='strip-price'>$250/night</div>
+                  </div>
+                </div>
+              </div>
+            }
+          />
+        );
+
+      case 'trips':
+        return (
+          <MegaMenuSection
+            heroImage='/images/trip-hero.jpg'
+            titleKey='trips.title'
+            descKey='trips.description'
+            items={TRIPS_RIGHT}
+            onClose={onClose}
+          />
+        );
+
+      case 'albums':
+        return (
+          <MegaMenuSection
+            heroImage='/images/albums-hero.jpg'
+            titleKey='albums.title'
+            descKey='albums.description'
+            items={ALBUMS_RIGHT}
+            onClose={onClose}
+          />
+        );
+
+      case 'friends':
+        return (
+          <MegaMenuSection
+            heroImage='/images/friends-hero.jpg'
+            titleKey='friends.title'
+            descKey='friends.description'
+            items={FRIENDS_RIGHT}
+            onClose={onClose}
+          />
+        );
+
+      case 'insights':
+        return (
+          <MegaMenuSection
+            heroImage='/images/insights-hero.jpg'
+            titleKey='insights.title'
+            descKey='insights.description'
+            items={INSIGHTS_RIGHT}
+            onClose={onClose}
+          />
+        );
+
+      case 'groups':
+        return (
+          <MegaMenuSection
+            heroImage='/images/groups-hero.jpg'
+            titleKey='groups.title'
+            descKey='groups.description'
+            items={GROUPS_RIGHT}
+            onClose={onClose}
+          />
+        );
+
+      case 'community':
+        return (
+          <MegaMenuSection
+            heroImage='/images/community-hero.jpg'
+            titleKey='community.title'
+            descKey='community.description'
+            items={COMMUNITY_RIGHT}
+            onClose={onClose}
+          />
+        );
+
+      case 'help':
+        return (
+          <MegaMenuSection
+            titleKey='help.title'
+            descKey='help.description'
+            items={HELP_RIGHT}
+            onClose={onClose}
+          />
+        );
+
+      case 'settings':
+        return renderSettingsSection();
+
+      default:
+        return (
+          <div className='mega-right-placeholder'>
+            <div className='placeholder-title'>{t(`menu.${key}`)}</div>
+            <div className='placeholder-sub'>{t('common.comingSoon')}</div>
+          </div>
+        );
+    }
+  };
+
 
   const rightContent = renderRightFor(activeKey);
 

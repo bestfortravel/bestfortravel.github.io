@@ -247,6 +247,11 @@
 	&:hover {
 		background: #EFF6FF;
 	}
+
+	&.disabled {
+		opacity: 0.4;
+		cursor: unset;
+	}
 }
 
 .mega-right-item-link {
