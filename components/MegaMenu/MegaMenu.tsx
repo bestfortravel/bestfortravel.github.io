@@ -241,7 +241,7 @@ export default function MegaMenu({ open, onClose }: Props) {
             <div className='strip-card'>
               <img src='/images/villa1.jpg' alt='' />
               <div className='strip-meta'>
-                <div className='strip-title'>Villa DE 'Marco</div>
+                <div className='strip-title'>Villa DE `Marco</div>
                 <div className='strip-sub'>Santorini, Greece</div>
                 <div className='strip-price'>$180/night</div>
               </div>

@@ -1,8 +1,9 @@
 import en from '@/locales/en.json';
+import de from '@/locales/de.json';
 import ru from '@/locales/ru.json';
-import uk from '@/locales/uk.json';
+import ua from '@/locales/ua.json';
 
-const dictionary: any = { en, ru, uk };
+const dictionary: any = { en, de, ru, ua };
 
 export function useTranslations(lang: string) {
   return (key: string) => {
