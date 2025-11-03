@@ -77,10 +77,10 @@ const FRIENDS_RIGHT = [
 ];
 
 const INSIGHTS_RIGHT = [
-  { icon: '/menu/stats.svg', key: 'insights.stats' },
-  { icon: '/menu/stats-summary.svg', key: 'insights.summary' },
-  { icon: '/menu/leaderboards.svg', key: 'insights.leaderboards' },
-  { icon: '/menu/badge.svg', key: 'insights.badges' },
+  { icon: '/menu/stats.svg', key: 'insights.stats', href: '/travelstats' },
+  { icon: '/menu/stats-summary.svg', key: 'insights.summary', href: '/insights' },
+  { icon: '/menu/leaderboards.svg', key: 'insights.leaderboards', href: '' },
+  { icon: '/menu/badge.svg', key: 'insights.badges', href: '' },
 ];
 
 const GROUPS_RIGHT = [
@@ -92,11 +92,11 @@ const GROUPS_RIGHT = [
 ];
 
 const COMMUNITY_RIGHT = [
-  { icon: '/menu/globe.svg', key: 'community.feed' },
-  { icon: '/menu/info-waves.svg', key: 'community.tips' },
-  { icon: '/menu/rocket.svg', key: 'community.traveler' },
-  { icon: '/menu/wheel.svg', key: 'community.guides' },
-  { icon: '/menu/chart-no-axes-gantt.svg', key: 'community.polls' },
+  { icon: '/menu/globe.svg', key: 'community.feed', href: '/feed' },
+  { icon: '/menu/info-waves.svg', key: 'community.tips', href: '' },
+  { icon: '/menu/rocket.svg', key: 'community.traveler', href: '' },
+  { icon: '/menu/wheel.svg', key: 'community.guides', href: '' },
+  { icon: '/menu/chart-no-axes-gantt.svg', key: 'community.polls', href: '' },
 ];
 
 const SETTINGS_LINKS = [
@@ -193,8 +193,21 @@ export default function MegaMenu({ open, onClose }: Props) {
           <ul className='mega-right-list'>
             {EXPLORE_RIGHT.map((r) => (
               <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
+                {r.href && r.href.length && r.href.length > 0 ? (
+                  <Link
+                    className='mega-right-item-link'
+                    href={r.href}
+                    onClick={() => {onClose();}}
+                  >
+                    <img className='mega-right-icon' src={r.icon} alt='' />
+                    <span>{t(r.key)}</span>
+                  </Link>
+                ) : (
+                  <>
+                    <img className='mega-right-icon' src={r.icon} alt='' />
+                    <span>{t(r.key)}</span>
+                  </>
+                )}
               </li>
             ))}
           </ul>
@@ -337,8 +350,21 @@ export default function MegaMenu({ open, onClose }: Props) {
           <ul className='mega-right-list'>
             {INSIGHTS_RIGHT.map((r) => (
               <li key={r.key} className='mega-right-item'>
-                <img className='mega-right-icon' src={r.icon} alt='' />
-                <span>{t(r.key)}</span>
+                {r.href && r.href.length && r.href.length > 0 ? (
+                  <Link
+                    className='mega-right-item-link'
+                    href={r.href}
+                    onClick={() => {onClose();}}
+                  >
+                    <img className='mega-right-icon' src={r.icon} alt='' />
+                    <span>{t(r.key)}</span>
+                  </Link>
+                ) : (
+                  <>
+                    <img className='mega-right-icon' src={r.icon} alt='' />
+                    <span>{t(r.key)}</span>
+                  </>
+                )}
               </li>
             ))}
           </ul>
