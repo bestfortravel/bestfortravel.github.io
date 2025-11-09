@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import '@/styles/Profile.scss';
 
 import ProfileBanner from '@/components/ProfileBanner/ProfileBanner';
 import InterestsSection from '@/components/InterestsSection/InterestsSection';
