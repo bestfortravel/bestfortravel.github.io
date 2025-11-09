@@ -42,13 +42,13 @@ const EXPLORE_RIGHT = [
 ];
 
 const MAP_RIGHT = [
-  { icon: '/menu/search-user.svg', key: 'map.people' },
-  { icon: '/menu/places.svg', key: 'map.places' },
-  { icon: '/menu/stays.svg', key: 'map.stays' },
-  { icon: '/menu/activities.svg', key: 'map.activities' },
-  { icon: '/menu/food.svg', key: 'map.food' },
-  { icon: '/menu/movies.svg', key: 'map.movies' },
-  { icon: '/menu/tips.svg', key: 'map.tips' }
+  { icon: '/menu/search-user.svg', key: 'map.people', href: '/map?tab=people' },
+  { icon: '/menu/places.svg', key: 'map.places', href: '/map?tab=places' },
+  { icon: '/menu/stays.svg', key: 'map.stays', href: '/map?tab=stays' },
+  { icon: '/menu/activities.svg', key: 'map.activities', href: '/map?tab=activities' },
+  { icon: '/menu/food.svg', key: 'map.food', href: '/map?tab=food' },
+  { icon: '/menu/movies.svg', key: 'map.movies', href: '/map?tab=movies' },
+  { icon: '/menu/tips.svg', key: 'map.tips', href: '/map?tab=tips' }
 ];
 
 const TRIPS_RIGHT = [

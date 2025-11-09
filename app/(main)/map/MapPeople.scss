@@ -1,0 +1,336 @@
+.people-shell {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 580px;
+}
+
+.people-shell--expanded .people-list-panel {
+  display: none;
+}
+
+.people-shell--expanded .people-map-panel {
+  width: 100%;
+}
+
+.people-list-panel {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.people-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.people-list-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.people-sort {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.people-sort-label {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.people-sort-btn {
+  border: none;
+  background: #e2e8f0;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+.people-sort-btn.is-active {
+  background: #0f172a;
+  color: #fff;
+}
+
+.people-list-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 16px;
+  padding-right: 4px;
+}
+
+.people-album-card {
+  display: block;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.people-album-cover {
+  width: 100%;
+  padding-top: 56%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.people-album-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  padding: 4px 12px 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.people-album-content {
+  padding: 11px 14px 12px 14px;
+}
+
+.people-album-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.people-album-date {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+.people-album-user {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.people-album-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background-size: cover;
+  background-position: center;
+}
+
+.people-album-username {
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.people-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.people-map-panel {
+  position: relative;
+  flex: 1;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #dbeafe;
+}
+
+.people-map-topbar {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 10;
+}
+
+.people-map-search {
+  display: flex;
+  gap: 6px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 6px 10px 6px 14px;
+  align-items: center;
+  box-shadow: 0 6px 30px rgba(15, 23, 42, 0.08);
+  width: 360px;
+}
+
+.people-map-search-input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  flex: 1;
+}
+
+.people-map-search-input::placeholder {
+  color: #94a3b8;
+}
+
+.people-map-search-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 12px;
+  background: #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.people-map-rightcontrols {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.people-map-expand {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #fff;
+  border: none;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.people-map-zoom {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.people-map-zoom-btn {
+  width: 48px;
+  height: 40px;
+  border: none;
+  background: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.people-map-zoom-btn + .people-map-zoom-btn {
+  border-top: 1px solid #e2e8f0;
+}
+
+.people-map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.people-marker {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 999px;
+  border: 4px solid #fff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.2);
+}
+
+.people-marker-likes {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 14px 7px 12px;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12);
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.people-marker-likes-icon {
+  display: inline-flex;
+  width: 14px;
+  height: 14px;
+}
+
+.people-marker-likes-num {
+  line-height: 1;
+}
+
+.people-marker-tooltip-card {
+  display: block;
+  width: 290px;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.14);
+}
+
+.people-marker-tooltip-image {
+  width: 100%;
+  padding-top: 56%;
+  background-size: cover;
+  background-position: center;
+}
+
+.people-marker-tooltip-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px 12px 14px;
+}
+
+.people-marker-tooltip-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.2;
+  max-width: 210px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.people-marker-tooltip-arrow {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .people-shell {
+    flex-direction: column;
+    height: auto;
+  }
+  .people-list-panel {
+    width: 100%;
+  }
+  .people-list-scroll {
+    grid-template-columns: 1fr 1fr;
+  }
+}

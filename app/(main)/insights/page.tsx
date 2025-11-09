@@ -2,7 +2,7 @@
 
 import React from 'react';
 import '@/styles/Insights.scss';
-import '@/components/Insights/dropdown.scss';
+import '@/styles/dropdown.scss';
 
 import InsightsHeader from '@/components/Insights/InsightsHeader';
 import TravelCharts from '@/components/Insights/TravelCharts';

@@ -6,6 +6,7 @@ import type { Feature, LineString, GeoJsonProperties } from 'geojson';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './TravelMap.scss';
+import '@/styles/mapTooltip.scss';
 
 const TravelMap = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -177,8 +178,6 @@ const TravelMap = () => {
 
         el.addEventListener('click', () => {
           window.location.href = '/albums'
-          // or dynamic route:
-          // window.location.href = `/albums/${point.slug}`
         })
 
         mapContainer.current?.appendChild(tooltip);
@@ -189,9 +188,11 @@ const TravelMap = () => {
           tooltip.style.left = `${pixel.x - 125}px`;
           tooltip.style.top = `${pixel.y - 235}px`;
           tooltip.classList.add('visible');
+          el.classList.add('active');
         });
         el.addEventListener('mouseleave', (e) => {
           tooltip.classList.remove('visible');
+          el.classList.remove('active');
         });
 
         new maplibregl.Marker({ element: el })

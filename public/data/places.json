@@ -1,0 +1,181 @@
+[
+  {
+    "id": "paris",
+    "name": "Paris",
+    "country": "France",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "likes": 2000,
+    "cover": "/images/places/paris.jpg",
+    "photos": [
+      {
+        "id": "p1",
+        "url": "/images/places/paris-1.jpg",
+        "user": "Leslie Alexander",
+        "userAvatar": "/images/users/leslie.png",
+        "title": "Eiffel Tower tour",
+        "location": "Paris, France",
+        "date": "2025-05-01",
+        "rating": 4.9
+      },
+      {
+        "id": "p2",
+        "url": "/images/places/paris-2.jpg",
+        "user": "Leslie Alexander",
+        "userAvatar": "/images/users/leslie.png",
+        "title": "Evening in Paris",
+        "location": "Paris, France",
+        "date": "2025-04-29",
+        "rating": 4.7
+      },
+      {
+        "id": "p3",
+        "url": "/images/places/paris-3.jpg",
+        "user": "Michael Chen",
+        "title": "Hotel French Theory",
+        "location": "Paris, France",
+        "date": "2025-04-27",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "rome",
+    "name": "Rome",
+    "country": "Italy",
+    "lat": 41.9028,
+    "lng": 12.4964,
+    "likes": 1500,
+    "cover": "/images/places/rome.jpg",
+    "photos": [
+      {
+        "id": "r1",
+        "url": "/images/places/rome-1.jpg",
+        "user": "Jacob Jones",
+        "title": "Colosseum morning",
+        "location": "Rome, Italy",
+        "date": "2025-04-30",
+        "rating": 4.6
+      },
+      {
+        "id": "r2",
+        "url": "/images/places/rome-2.jpg",
+        "user": "Jacob Jones",
+        "title": "Italian streets",
+        "location": "Rome, Italy",
+        "date": "2025-04-21",
+        "rating": 4.4
+      }
+    ]
+  },
+  {
+    "id": "copenhagen",
+    "name": "Copenhagen",
+    "country": "Denmark",
+    "lat": 55.6761,
+    "lng": 12.5683,
+    "likes": 1500,
+    "cover": "/images/places/copenhagen.jpg",
+    "photos": []
+  },
+  {
+    "id": "krakow",
+    "name": "Kraków",
+    "country": "Poland",
+    "lat": 50.0647,
+    "lng": 19.945,
+    "likes": 470,
+    "cover": "/images/places/krakow.jpg",
+    "photos": []
+  },
+  {
+    "id": "lisbon",
+    "name": "Lisbon",
+    "country": "Portugal",
+    "lat": 38.7223,
+    "lng": -9.1393,
+    "likes": 1500,
+    "cover": "/images/places/lisbon.jpg",
+    "photos": []
+  },
+  {
+    "id": "london",
+    "name": "London",
+    "country": "United Kingdom",
+    "lat": 51.5074,
+    "lng": -0.1278,
+    "likes": 1100,
+    "cover": "/images/places/london.jpg",
+    "photos": [
+      {
+        "id": "l1",
+        "url": "/images/places/london-1.jpg",
+        "user": "Courtney Henry",
+        "title": "Tower Bridge",
+        "location": "London, UK",
+        "date": "2025-04-25",
+        "rating": 4.8
+      }
+    ]
+  },
+  {
+    "id": "barcelona",
+    "name": "Barcelona",
+    "country": "Spain",
+    "lat": 41.3874,
+    "lng": 2.1686,
+    "likes": 1300,
+    "cover": "/images/places/barcelona.jpg",
+    "photos": [
+      {
+        "id": "b1",
+        "url": "/images/places/barcelona-1.jpg",
+        "user": "Wade Warren",
+        "title": "Park Güell view",
+        "location": "Barcelona, Spain",
+        "date": "2025-04-23",
+        "rating": 4.6
+      }
+    ]
+  },
+  {
+    "id": "vienna",
+    "name": "Vienna",
+    "country": "Austria",
+    "lat": 48.2082,
+    "lng": 16.3738,
+    "likes": 680,
+    "cover": "/images/places/vienna.jpg",
+    "photos": []
+  },
+  {
+    "id": "budapest",
+    "name": "Budapest",
+    "country": "Hungary",
+    "lat": 47.4979,
+    "lng": 19.0402,
+    "likes": 1000,
+    "cover": "/images/places/budapest.jpg",
+    "photos": [
+      {
+        "id": "bu1",
+        "url": "/images/places/budapest-1.jpg",
+        "user": "Cody Fisher",
+        "title": "Parliament by night",
+        "location": "Budapest, Hungary",
+        "date": "2025-04-18",
+        "rating": 4.9
+      }
+    ]
+  },
+  {
+    "id": "amsterdam",
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "likes": 940,
+    "cover": "/images/places/amsterdam.jpg",
+    "photos": []
+  }
+]

@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "name": "Leslie Alexander",
+    "avatar": "/images/AlexChen.png",
+    "photo": "/images/Australia.png",
+    "likes": 2000,
+    "friends": true,
+    "lat": -33.8688,
+    "lng": 151.2093,
+    "caption": "Surfing sunrise at Bondi Beach, Sydney."
+  },
+  {
+    "id": 2,
+    "name": "Jenny Wilson",
+    "avatar": "/images/CodyFisher.png",
+    "photo": "/images/FaroeIslands.png",
+    "likes": 1650,
+    "friends": true,
+    "lat": 37.7749,
+    "lng": -122.4194,
+    "caption": "Golden Gate views and foggy mornings in San Francisco."
+  },
+  {
+    "id": 3,
+    "name": "Cameron Williamson",
+    "avatar": "/images/avatar.png",
+    "photo": "/images/amsterdam.jpg",
+    "likes": 120,
+    "friends": false,
+    "lat": 52.3676,
+    "lng": 4.9041,
+    "caption": "Canal reflections at golden hour in Amsterdam."
+  },
+  {
+    "id": 4,
+    "name": "Courtney Henry",
+    "avatar": "/images/GuyHawkins.png",
+    "photo": "/images/Japan.png",
+    "likes": 800,
+    "friends": false,
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "caption": "Cherry blossoms and city lights in Tokyo."
+  },
+  {
+    "id": 5,
+    "name": "Arlene McCoy",
+    "avatar": "/images/LeslieAlexander.png",
+    "photo": "/images/PostImage1.png",
+    "likes": 640,
+    "friends": true,
+    "lat": 45.5017,
+    "lng": -73.5673,
+    "caption": "Autumn colors and coffee in Old Montreal."
+  },
+  {
+    "id": 6,
+    "name": "Ralph Edwards",
+    "avatar": "/images/LiliEdwards.png",
+    "photo": "/images/seoul.jpg",
+    "likes": 470,
+    "friends": false,
+    "lat": 37.5665,
+    "lng": 126.978,
+    "caption": "Street food adventure in Seoul’s Myeongdong district."
+  },
+  {
+    "id": 7,
+    "name": "Theresa Webb",
+    "avatar": "/images/MariaSantos.png",
+    "photo": "/images/PostImage3.png",
+    "likes": 990,
+    "friends": false,
+    "lat": 30.0444,
+    "lng": 31.2357,
+    "caption": "Sunset over the Nile River, Cairo."
+  },
+  {
+    "id": 8,
+    "name": "Bessie Cooper",
+    "avatar": "/images/LeslieAlexander.png",
+    "photo": "/images/seoul.jpg",
+    "likes": 350,
+    "friends": true,
+    "lat": 23.1136,
+    "lng": -82.3666,
+    "caption": "Vintage cars and mojitos in Havana, Cuba."
+  },
+  {
+    "id": 9,
+    "name": "Darlene Robertson",
+    "avatar": "/images/RobertFox.png",
+    "photo": "/images/groups-hero.jpg",
+    "likes": 1750,
+    "friends": true,
+    "lat": -1.2921,
+    "lng": 36.8219,
+    "caption": "Safari sunset on the plains of Nairobi National Park."
+  },
+  {
+    "id": 10,
+    "name": "Floyd Miles",
+    "avatar": "/images/CodyFisher.png",
+    "photo": "/images/friends-hero.jpg",
+    "likes": 950,
+    "friends": false,
+    "lat": 55.7558,
+    "lng": 37.6173,
+    "caption": "Snowy evening at Red Square, Moscow."
+  }
+]

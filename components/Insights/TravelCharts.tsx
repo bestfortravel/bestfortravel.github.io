@@ -171,7 +171,7 @@ export default function TravelCharts() {
         <div className='chart-header'>
           <h3>Travel Frequency</h3>
           <div
-            className='chart-filter'
+            className='dropdown-header'
             onClick={() => setShowYearDropdown(!showYearDropdown)}
           >
             {yearRange}
@@ -246,7 +246,7 @@ export default function TravelCharts() {
         <div className='chart-header'>
           <h3>Monthly Travel Pattern</h3>
           <div
-            className='chart-filter'
+            className='dropdown-header'
             onClick={() => setShowMonthDropdown(!showMonthDropdown)}
           >
             {monthRange}
