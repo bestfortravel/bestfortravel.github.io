@@ -1,6 +1,5 @@
 'use client';
 
-import './Header.scss';
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,7 +16,6 @@ export default function Header({ fullWidth = false }: HeaderProps) {
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const pathname = usePathname();
   const hamburgerRef = useRef<HTMLButtonElement | null>(null);
-
 
   useEffect(() => {
     const HEADER_HEIGHT = 153;
@@ -52,7 +50,6 @@ export default function Header({ fullWidth = false }: HeaderProps) {
 
   const isActive = (path: string) => pathname.startsWith(path);
 
-  /** ✅ Toggle logic with mutual close */
   const toggleUsersMenu = () => {
     setIsUsersMenuOpen((prev) => {
       if (!prev) setIsMegaMenuOpen(false);
@@ -69,52 +66,94 @@ export default function Header({ fullWidth = false }: HeaderProps) {
   };
 
   return (
-    <div className={`header-wrapper ${isSticky ? 'sticky' : ''}`}>
+    <div
+      className={[
+        'fixed top-0 left-0 w-full transition-all',
+        isSticky
+          ? 'h-[120px] z-50 bg-gradient-to-b from-[#6884F4] to-transparent'
+          : 'h-[110px] z-50',
+      ].join(' ')}
+    >
       <div className={fullWidth ? 'wrapper-full-width' : 'wrapper'}>
         <header>
           <div
-            className={`header-inner ${isMegaMenuOpen ? 'mega-menu-active' : ''}`}
+            className={[
+              'flex items-center justify-between px-8 py-4 mt-4 rounded-[20px] bg-white relative',
+              'shadow-[0_0_120px_rgba(71,85,105,0.07)]',
+              'max-[640px]:px-5',
+              isMegaMenuOpen ? 'rounded-b-none' : '',
+            ].join(' ')}
           >
-
             {/* Logo */}
-            <div className='logo-wrapper'>
-              <Link className='header-link' href='/feed'>
-                <img src='/icons/LogoFull.svg' alt='Logo' />
+            <div className='flex items-center'>
+              <Link className='block' href='/feed'>
+                <img src='/icons/LogoFull.svg' alt='Logo' className='h-10 w-auto' />
               </Link>
             </div>
 
             {/* Navigation */}
-            <div className='header-links-wrapper'>
-              <Link href='/feed' className={`header-link ${isActive('/feed') ? 'active' : ''}`}>
+            <div className='flex max-[640px]:hidden'>
+              <Link
+                href='/feed'
+                className='relative px-3 pt-2 pb-4 text-[14px] leading-[22px] text-[#1E293B]'
+              >
                 Posts
+                {isActive('/feed') && (
+                  <span className='absolute left-1/2 -translate-x-1/2 bottom-[7px] w-[6px] h-[6px] rounded-full bg-[#002FFF]' />
+                )}
               </Link>
-              <Link href='/albums' className={`header-link ${isActive('/albums') ? 'active' : ''}`}>
+              <Link
+                href='/albums'
+                className='relative px-3 pt-2 pb-4 text-[14px] leading-[22px] text-[#1E293B]'
+              >
                 Albums
+                {isActive('/albums') && (
+                  <span className='absolute left-1/2 -translate-x-1/2 bottom-[7px] w-[6px] h-[6px] rounded-full bg-[#002FFF]' />
+                )}
               </Link>
-              <Link href='/profile' className={`header-link ${isActive('/profile') ? 'active' : ''}`}>
+              <Link
+                href='/profile'
+                className='relative px-3 pt-2 pb-4 text-[14px] leading-[22px] text-[#1E293B]'
+              >
                 Profile
+                {isActive('/profile') && (
+                  <span className='absolute left-1/2 -translate-x-1/2 bottom-[7px] w-[6px] h-[6px] rounded-full bg-[#002FFF]' />
+                )}
               </Link>
-              <Link href='/insights' className={`header-link ${isActive('/insights') ? 'active' : ''}`}>
+              <Link
+                href='/insights'
+                className='relative px-3 pt-2 pb-4 text-[14px] leading-[22px] text-[#1E293B]'
+              >
                 Insights
+                {isActive('/insights') && (
+                  <span className='absolute left-1/2 -translate-x-1/2 bottom-[7px] w-[6px] h-[6px] rounded-full bg-[#002FFF]' />
+                )}
               </Link>
             </div>
 
-            {/* Avatar + Hamburger */}
-            <div className='header-right'>
+            {/* Right side */}
+            <div className='flex items-center gap-4'>
               <button
                 type='button'
-                className='avatar-trigger'
                 onClick={toggleUsersMenu}
+                className='w-10 h-10 rounded-full overflow-hidden border-0 bg-transparent cursor-pointer'
                 aria-label='Open user menu'
               >
-                <img className='avatar-small' src='/images/avatar.png' alt='Profile' />
+                <img
+                  src='/images/avatar.png'
+                  alt='Profile'
+                  className='w-10 h-10 rounded-full object-cover'
+                />
               </button>
 
               <button
                 type='button'
                 ref={hamburgerRef}
-                className={`hamburger-trigger ${isMegaMenuOpen ? 'open' : ''}`}
                 onClick={(e) => toggleMegaMenu(e)}
+                className={[
+                  'w-10 h-10 grid place-items-center rounded-full transition',
+                  isMegaMenuOpen ? 'bg-[#F8FAFC]' : 'bg-transparent',
+                ].join(' ')}
                 aria-label={isMegaMenuOpen ? 'Close menu' : 'Open menu'}
               >
                 <img
@@ -124,17 +163,18 @@ export default function Header({ fullWidth = false }: HeaderProps) {
                       : '/icons/hamburger.svg'
                   }
                   alt='Menu toggle'
+                  className={isMegaMenuOpen ? 'w-4 h-4' : 'w-6 h-6'}
                 />
               </button>
             </div>
 
-            {/* Users Menu Overlay */}
+            {/* Users Menu */}
             <UsersMenu
               open={isUsersMenuOpen}
               onClose={() => setIsUsersMenuOpen(false)}
             />
 
-            {/* Mega Menu Overlay */}
+            {/* Mega Menu */}
             <MegaMenu
               open={isMegaMenuOpen}
               onClose={() => setIsMegaMenuOpen(false)}

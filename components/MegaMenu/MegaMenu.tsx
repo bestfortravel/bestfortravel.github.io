@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import './MegaMenu.scss';
 import { useI18n } from '@/components/Translation/TranslationProvider';
 import MegaMenuSection from './MegaMenuSection';
 
@@ -13,7 +12,7 @@ type Props = {
 type FirstLevel = {
   key: string;
   icon: string;
-	isDivider: boolean;
+  isDivider: boolean;
 };
 
 const FIRST_LEVEL: FirstLevel[] = [
@@ -26,7 +25,7 @@ const FIRST_LEVEL: FirstLevel[] = [
   { key: 'groups', icon: '/menu/groups.svg', isDivider: false },
   { key: 'community', icon: '/menu/users-group.svg', isDivider: true },
   { key: 'settings', icon: '/menu/settings.svg', isDivider: false },
-  { key: 'help', icon: '/menu/help.svg', isDivider: false }
+  { key: 'help', icon: '/menu/help.svg', isDivider: false },
 ];
 
 const EXPLORE_RIGHT = [
@@ -38,7 +37,7 @@ const EXPLORE_RIGHT = [
   { icon: '/menu/reels.svg', key: 'explore.reels', href: '/profile' },
   { icon: '/menu/compare.svg', key: 'explore.compare', href: '' },
   { icon: '/menu/challenges.svg', key: 'explore.challenges', href: '' },
-  { icon: '/menu/destinations.svg', key: 'explore.dreams', href: '' }
+  { icon: '/menu/destinations.svg', key: 'explore.dreams', href: '' },
 ];
 
 const MAP_RIGHT = [
@@ -48,7 +47,7 @@ const MAP_RIGHT = [
   { icon: '/menu/activities.svg', key: 'map.activities', href: '/map?tab=activities' },
   { icon: '/menu/food.svg', key: 'map.food', href: '/map?tab=food' },
   { icon: '/menu/movies.svg', key: 'map.movies', href: '/map?tab=movies' },
-  { icon: '/menu/tips.svg', key: 'map.tips', href: '/map?tab=tips' }
+  { icon: '/menu/tips.svg', key: 'map.tips', href: '/map?tab=tips' },
 ];
 
 const TRIPS_RIGHT = [
@@ -56,7 +55,7 @@ const TRIPS_RIGHT = [
   { icon: '/menu/pin.svg', key: 'trips.mine' },
   { icon: '/menu/location-user.svg', key: 'trips.shared' },
   { icon: '/menu/location-check.svg', key: 'trips.suggested' },
-  { icon: '/menu/sparkles.svg', key: 'trips.recommender' }
+  { icon: '/menu/sparkles.svg', key: 'trips.recommender' },
 ];
 
 const ALBUMS_RIGHT = [
@@ -64,7 +63,7 @@ const ALBUMS_RIGHT = [
   { icon: '/menu/book.svg', key: 'albums.mine' },
   { icon: '/menu/book-user.svg', key: 'albums.friends' },
   { icon: '/menu/book-share.svg', key: 'albums.shared' },
-  { icon: '/menu/archive.svg', key: 'albums.archived' }
+  { icon: '/menu/archive.svg', key: 'albums.archived' },
 ];
 
 const FRIENDS_RIGHT = [
@@ -73,7 +72,7 @@ const FRIENDS_RIGHT = [
   { icon: '/menu/user-plus.svg', key: 'friends.requests' },
   { icon: '/menu/ban.svg', key: 'friends.blocked' },
   { icon: '/menu/search-user.svg', key: 'friends.search' },
-  { icon: '/menu/user-check.svg', key: 'friends.suggested' }
+  { icon: '/menu/user-check.svg', key: 'friends.suggested' },
 ];
 
 const INSIGHTS_RIGHT = [
@@ -103,7 +102,7 @@ const SETTINGS_LINKS = [
   { icon: '/menu/cog-one.svg', key: 'settings.links.settings' },
   { icon: '/menu/user-waves.svg', key: 'settings.links.account' },
   { icon: '/menu/shield-crossed.svg', key: 'settings.links.privacy' },
-  { icon: '/menu/notification.svg', key: 'settings.links.notifications' }
+  { icon: '/menu/notification.svg', key: 'settings.links.notifications' },
 ];
 
 const HELP_RIGHT = [
@@ -123,28 +122,24 @@ export default function MegaMenu({ open, onClose }: Props) {
   const [activeKey, setActiveKey] = useState<string>('explore');
   const [mobileStage, setMobileStage] = useState<'list' | 'submenu'>('list');
 
-  // preferences
-  const [selectedCurrency, setSelectedCurrency] = useState<typeof CURRENCIES[number]>('curr.usd');
-  const [selectedLangKey, setSelectedLangKey] = useState<typeof LANG_KEYS[number]>(() => {
+  const [selectedCurrency, setSelectedCurrency] =
+    useState<(typeof CURRENCIES)[number]>('curr.usd');
+
+  const [selectedLangKey, setSelectedLangKey] = useState<(typeof LANG_KEYS)[number]>(() => {
     const idx = LOCALE_CODES.indexOf(locale as any);
     return LANG_KEYS[Math.max(0, idx)];
   });
 
+  // close on outside / esc
   useEffect(() => {
-    if (!open) {
-			return;
-		}
+    if (!open) return;
 
-		const keyHandler = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
-		const clickHandler = (e: MouseEvent) => {
-			const target = e.target as Node;
-			if (document.querySelector('.hamburger-trigger')?.contains(target)) {
-				return;
-			}
-			if (cardRef.current && !cardRef.current.contains(target)) {
-				onClose();
-			}
-		};
+    const keyHandler = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    const clickHandler = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (document.querySelector('.hamburger-trigger')?.contains(target)) return;
+      if (cardRef.current && !cardRef.current.contains(target)) onClose();
+    };
 
     document.addEventListener('keydown', keyHandler);
     document.addEventListener('mousedown', clickHandler);
@@ -160,81 +155,107 @@ export default function MegaMenu({ open, onClose }: Props) {
 
   const handleFirstClick = (key: string) => {
     setActiveKey(key);
-    if (window.matchMedia('(max-width: 800px)').matches) setMobileStage('submenu');
+    if (window.matchMedia('(max-width: 800px)').matches) {
+      setMobileStage('submenu');
+    }
   };
 
-  // reflect language radio → app locale
+  // sync language radio to app locale
   useEffect(() => {
     const map: Record<string, 'en' | 'ua' | 'de' | 'ru'> = {
       'lang.english': 'en',
       'lang.ukrainian': 'ua',
       'lang.german': 'de',
-      'lang.russian': 'ru'
+      'lang.russian': 'ru',
     };
     const next = map[selectedLangKey];
     if (next && next !== locale) setLocale(next);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLangKey]);
 
-  const renderSettingsSection = () => {
-    return (
-      <div className='mega-right-body'>
-        <div className='mega-hero-no-image'>
-          <div className='mega-hero-title'>{t('settings.title')}</div>
-          <div className='mega-hero-desc'>{t('settings.blurb')}</div>
+  const renderSettingsSection = () => (
+    <div className='rounded-[24px] bg-white overflow-hidden max-w-[600px]'>
+      <div className='flex flex-col gap-2 p-6'>
+        <div className='text-[#475569] text-[16px] font-medium'>{t('settings.title')}</div>
+        <div className='text-[#64748B] text-[12px] leading-5'>{t('settings.blurb')}</div>
+      </div>
+
+      <ul className='flex flex-col gap-4 px-6 py-4 border-y border-[#F1F5F9] bg-white'>
+        {SETTINGS_LINKS.map((it) => (
+          <li key={it.key} className='flex items-center gap-2 cursor-pointer'>
+            <img src={it.icon} alt='' className='w-[22px] h-[22px]' />
+            <span className='text-[#475569] text-[14px] leading-[22px]'>{t(it.key)}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div className='grid grid-cols-2 gap-4 p-6 max-[991px]:grid-cols-1'>
+        {/* Currency */}
+        <div>
+          <div className='text-[#475569] text-[14px] leading-[22px] mb-2'>
+            {t('settings.currency')}
+          </div>
+          <div className='bg-white rounded-[12px] overflow-hidden flex flex-col gap-[1px]'>
+            {CURRENCIES.map((cur) => (
+              <label
+                key={cur}
+                className={`flex items-center justify-between gap-3 px-4 py-3 cursor-pointer bg-[#F8FAFC] ${
+                  selectedCurrency === cur ? 'bg-[#EFF6FF]' : ''
+                }`}
+              >
+                <input
+                  type='radio'
+                  name='currency'
+                  className='hidden'
+                  checked={selectedCurrency === cur}
+                  onChange={() => setSelectedCurrency(cur)}
+                />
+                <span className='text-slate-900 text-sm'>{t(cur)}</span>
+                <span
+                  className={`w-[18px] h-[18px] rounded-full bg-white shadow-[inset_0_0_0_2px_#e5e7eb] ${
+                    selectedCurrency === cur ? 'shadow-[inset_0_0_0_5px_#002fff,0_0_0_4px_#e8efff]' : ''
+                  }`}
+                  aria-hidden
+                />
+              </label>
+            ))}
+          </div>
         </div>
 
-        <ul className='mega-right-list'>
-          {SETTINGS_LINKS.map((it) => (
-            <li key={it.key} className='mega-right-item'>
-              <img className='mega-right-icon' src={it.icon} alt='' />
-              <span>{t(it.key)}</span>
-            </li>
-          ))}
-        </ul>
-
-        <div className='settings-grid'>
-          <div className='pref-card'>
-            <div className='pref-title'>{t('settings.currency')}</div>
-            <div className='pref-box'>
-              {CURRENCIES.map((cur) => (
-                <label key={cur} className={`pref-option ${selectedCurrency === cur ? 'active': ''}`}>
-                  <input
-                    type='radio'
-                    name='currency'
-                    value={cur}
-                    checked={selectedCurrency === cur}
-                    onChange={() => setSelectedCurrency(cur)}
-                  />
-                  <span className='pref-text'>{t(cur)}</span>
-                  <span className='pref-radio' aria-hidden />
-                </label>
-              ))}
-            </div>
+        {/* Language */}
+        <div>
+          <div className='text-[#475569] text-[14px] leading-[22px] mb-2'>
+            {t('settings.language')}
           </div>
-
-          <div className='pref-card'>
-            <div className='pref-title'>{t('settings.language')}</div>
-            <div className='pref-box'>
-              {LANG_KEYS.map((lngKey) => (
-                <label key={lngKey} className='pref-option'>
-                  <input
-                    type='radio'
-                    name='language'
-                    value={lngKey}
-                    checked={selectedLangKey === lngKey}
-                    onChange={() => setSelectedLangKey(lngKey)}
-                  />
-                  <span className='pref-text'>{t(lngKey)}</span>
-                  <span className='pref-radio' aria-hidden />
-                </label>
-              ))}
-            </div>
+          <div className='bg-white rounded-[12px] overflow-hidden flex flex-col gap-[1px]'>
+            {LANG_KEYS.map((lngKey) => (
+              <label
+                key={lngKey}
+                className={`flex items-center justify-between gap-3 px-4 py-3 cursor-pointer bg-[#F8FAFC] ${
+                  selectedLangKey === lngKey ? 'bg-[#EFF6FF]' : ''
+                }`}
+              >
+                <input
+                  type='radio'
+                  name='language'
+                  className='hidden'
+                  checked={selectedLangKey === lngKey}
+                  onChange={() => setSelectedLangKey(lngKey)}
+                />
+                <span className='text-slate-900 text-sm'>{t(lngKey)}</span>
+                <span
+                  className={`w-[18px] h-[18px] rounded-full bg-white shadow-[inset_0_0_0_2px_#e5e7eb] ${
+                    selectedLangKey === lngKey ? 'shadow-[inset_0_0_0_5px_#002fff,0_0_0_4px_#e8efff]' : ''
+                  }`}
+                  aria-hidden
+                />
+              </label>
+            ))}
           </div>
         </div>
       </div>
-    );
-  };
+    </div>
+  );
 
   const renderRightFor = (key: string) => {
     switch (key) {
@@ -248,7 +269,6 @@ export default function MegaMenu({ open, onClose }: Props) {
             onClose={onClose}
           />
         );
-
       case 'map':
         return (
           <MegaMenuSection
@@ -258,28 +278,27 @@ export default function MegaMenu({ open, onClose }: Props) {
             items={MAP_RIGHT}
             onClose={onClose}
             extraContent={
-              <div className='mega-right-strip'>
-                <div className='strip-card'>
-                  <img src='/images/villa1.jpg' alt='' />
-                  <div className='strip-meta'>
-                    <div className='strip-title'>Villa DE Marco</div>
-                    <div className='strip-sub'>Santorini, Greece</div>
-                    <div className='strip-price'>$180/night</div>
+              <div className='flex flex-wrap gap-3 p-6'>
+                <div className='flex gap-3'>
+                  <img src='/images/villa1.jpg' alt='' className='w-[104px] h-16 rounded-[12px] object-cover' />
+                  <div>
+                    <div className='text-[#475569] text-[14px] font-medium'>Villa DE Marco</div>
+                    <div className='text-[#64748B] text-[12px] leading-5'>Santorini, Greece</div>
+                    <div className='text-[#1E293B] text-[14px] mt-1'>$180/night</div>
                   </div>
                 </div>
-                <div className='strip-card'>
-                  <img src='/images/villa2.jpg' alt='' />
-                  <div className='strip-meta'>
-                    <div className='strip-title'>Sunset Villa Oia</div>
-                    <div className='strip-sub'>Santorini, Greece</div>
-                    <div className='strip-price'>$250/night</div>
+                <div className='flex gap-3'>
+                  <img src='/images/villa2.jpg' alt='' className='w-[104px] h-16 rounded-[12px] object-cover' />
+                  <div>
+                    <div className='text-[#475569] text-[14px] font-medium'>Sunset Villa Oia</div>
+                    <div className='text-[#64748B] text-[12px] leading-5'>Santorini, Greece</div>
+                    <div className='text-[#1E293B] text-[14px] mt-1'>$250/night</div>
                   </div>
                 </div>
               </div>
             }
           />
         );
-
       case 'trips':
         return (
           <MegaMenuSection
@@ -290,7 +309,6 @@ export default function MegaMenu({ open, onClose }: Props) {
             onClose={onClose}
           />
         );
-
       case 'albums':
         return (
           <MegaMenuSection
@@ -301,7 +319,6 @@ export default function MegaMenu({ open, onClose }: Props) {
             onClose={onClose}
           />
         );
-
       case 'friends':
         return (
           <MegaMenuSection
@@ -312,7 +329,6 @@ export default function MegaMenu({ open, onClose }: Props) {
             onClose={onClose}
           />
         );
-
       case 'insights':
         return (
           <MegaMenuSection
@@ -323,7 +339,6 @@ export default function MegaMenu({ open, onClose }: Props) {
             onClose={onClose}
           />
         );
-
       case 'groups':
         return (
           <MegaMenuSection
@@ -334,7 +349,6 @@ export default function MegaMenu({ open, onClose }: Props) {
             onClose={onClose}
           />
         );
-
       case 'community':
         return (
           <MegaMenuSection
@@ -345,7 +359,6 @@ export default function MegaMenu({ open, onClose }: Props) {
             onClose={onClose}
           />
         );
-
       case 'help':
         return (
           <MegaMenuSection
@@ -355,67 +368,98 @@ export default function MegaMenu({ open, onClose }: Props) {
             onClose={onClose}
           />
         );
-
       case 'settings':
         return renderSettingsSection();
-
       default:
         return (
-          <div className='mega-right-placeholder'>
-            <div className='placeholder-title'>{t(`menu.${key}`)}</div>
-            <div className='placeholder-sub'>{t('common.comingSoon')}</div>
+          <div className='grid place-items-center h-full rounded-[16px] bg-gradient-to-b from-[#f8fbff] to-[#f2f6ff] border border-dashed border-[rgba(2,52,255,.12)] p-6 text-center'>
+            <div className='text-[#0f172a] font-bold mb-2'>{t(`menu.${key}`)}</div>
+            <div className='text-slate-500 text-sm'>{t('common.comingSoon')}</div>
           </div>
         );
     }
   };
 
-
   const rightContent = renderRightFor(activeKey);
 
   return (
-    <div className={`mega-overlay ${open ? 'open' : ''}`} aria-hidden={!open}>
-      <div ref={cardRef} className='mega-card' role='dialog' aria-modal='true'>
-        <div className='mega-inner'>
-          <aside className={`mega-left ${mobileStage === 'submenu' ? 'slide-out' : 'slide-in'}`}>
-            <ul className='mega-left-list'>
+    <div
+      className={`absolute inset-0 top-[78px] left-1/2 -translate-x-1/2 w-full z-[90] ${
+        open ? 'block animate-[menuDrop_220ms_ease-out]' : 'hidden'
+      } max-[640px]:top-[72px]`}
+      aria-hidden={!open}
+    >
+      <div
+        ref={cardRef}
+        role='dialog'
+        aria-modal='true'
+        className='relative w-full bg-white rounded-b-[24px] shadow-[0_123px_120px_-61px_rgba(71,85,105,0.25)] overflow-hidden'
+      >
+        <div className='flex max-[800px]:h-[80vh] max-[800px]:relative'>
+          {/* LEFT */}
+          <aside
+            className={`bg-[#fbfcff] p-6 max-w-[430px] box-border max-[800px]:absolute max-[800px]:inset-0 max-[800px]:transition-all max-[800px]:duration-200 ${
+              mobileStage === 'submenu'
+                ? 'max-[800px]:-translate-x-6 max-[800px]:opacity-0 max-[800px]:pointer-events-none'
+                : 'max-[800px]:translate-x-0 max-[800px]:opacity-100'
+            }`}
+          >
+            <ul className='flex flex-col gap-1 list-none m-0 p-0'>
               {FIRST_LEVEL.map((item) => (
-								<>
-                <li
-                  key={item.key}
-                  className={`mega-left-item ${activeKey === item.key ? 'active' : ''}`}
-                  onClick={() => handleFirstClick(item.key)}
-                >
-                  <div className='mega-left-main'>
-                    <img className='mega-left-icon' src={item.icon} alt='' />
-                    <span>{t(`menu.${item.key}`)}</span>
-                  </div>
-                </li>
-
-								{item.isDivider && (<div className='mega-left-divider'></div>)}
-								</>
+                <React.Fragment key={item.key}>
+                  <li
+                    className={`flex items-start gap-3 px-2 py-2 rounded-[24px] cursor-pointer transition ${
+                      activeKey === item.key ? 'bg-[#EFF6FF] relative' : 'hover:bg-[#EFF6FF]'
+                    }`}
+                    onClick={() => handleFirstClick(item.key)}
+                  >
+                    <div className='flex items-center gap-3'>
+                      <img src={item.icon} alt='' className='w-[22px] h-[22px]' />
+                      <span className='text-[#1E293B] text-[14px]'>{t(`menu.${item.key}`)}</span>
+                    </div>
+                    {activeKey === item.key && (
+                      <span
+                        className="hidden max-[800px]:hidden lg:block absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 bg-[url('/menu/chevron-right.svg')] bg-no-repeat bg-center bg-cover"
+                        aria-hidden
+                      />
+                    )}
+                  </li>
+                  {item.isDivider && <div className='w-full h-px bg-[#F1F5F9] my-2' />}
+                </React.Fragment>
               ))}
             </ul>
 
-            <div className='mega-ai'>
-              <div className='mega-ai-icon'>
-                <img src='/menu/infinity.svg' alt='' />
+            {/* AI promo */}
+            <div className='flex items-center gap-3 mt-2 rounded-full bg-[linear-gradient(238deg,#F8FAFC_65.65%,#002FFF_438.7%)] p-2'>
+              <div className='flex w-[37px] h-[37px] rounded-full bg-[linear-gradient(172deg,#FFF_59.56%,#3EC3FF_226.6%)] justify-center items-center shadow-[ -4px_5px_7px_-6px_#5774F5, -6px_-3px_8.9px_-7px_#3EC3FF, 6px_-3px_7.8px_-6px_#5774F5, 5px_6px_5.9px_-7px_#3EC3FF]'>
+                <img src='/menu/infinity.svg' alt='' className='w-6 h-6' />
               </div>
-              <div className='mega-ai-text'>
-                <div className='mega-ai-title'>{t('ai.title')}</div>
-                <div className='mega-ai-sub'>{t('ai.description')}</div>
+              <div className='flex flex-col'>
+                <div className='text-[#475569] text-[14px] font-medium'>{t('ai.title')}</div>
+                <div className='text-[#64748B] text-[12px] leading-5 whitespace-nowrap max-[991px]:whitespace-normal max-[991px]:min-w-[250px]'>
+                  {t('ai.description')}
+                </div>
               </div>
             </div>
           </aside>
 
-          <section className={`mega-right ${mobileStage === 'submenu' ? 'slide-in' : 'slide-out'}`}>
+          {/* RIGHT */}
+          <section
+            className={`relative bg-[#EFF6FF] p-4 w-full box-border max-[800px]:absolute max-[800px]:inset-0 max-[800px]:transition-all max-[800px]:duration-200 ${
+              mobileStage === 'submenu'
+                ? 'max-[800px]:translate-x-0 max-[800px]:opacity-100'
+                : 'max-[800px]:translate-x-6 max-[800px]:opacity-0 max-[800px]:pointer-events-none'
+            }`}
+          >
+            {/* mobile top */}
             <div
-              className='mega-mobile-top'
+              className='hidden max-[800px]:flex items-center gap-2 px-6 py-4 border-b border-[rgba(15,23,42,0.05)] bg-white cursor-pointer'
               onClick={() => setMobileStage('list')}
               role='button'
               aria-label={t('menu.back')}
             >
-              <img className='mega-back-icon' src='/menu/chevron-left.svg' alt='' />
-              <span className='mega-mobile-title'>
+              <img src='/menu/chevron-left.svg' alt='' className='w-4 h-4' />
+              <span className='text-[#1E293B] text-[14px] leading-[22px]'>
                 {t(`menu.${activeKey}`)}
               </span>
             </div>

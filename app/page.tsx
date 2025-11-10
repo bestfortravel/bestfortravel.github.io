@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Button from '@/components/Button/Button';
-import '@/styles/Home.scss';
 import Cookies from 'js-cookie';
+import Button from '@/components/Button/Button';
 
 export default function HomePage() {
   const router = useRouter();
@@ -22,7 +21,6 @@ export default function HomePage() {
     spaces: true,
   });
 
-  // Password validation rules
   const validatePasswordRules = (value: string) => {
     setRequirements({
       length: value.length >= 6 && value.length <= 12,
@@ -57,13 +55,12 @@ export default function HomePage() {
 
     if (!validateForm()) return;
 
-    // Hardcoded credentials
     const VALID_EMAIL = 'bft@gmail.com';
     const VALID_PASSWORD = 'Password1';
 
     if (email === VALID_EMAIL && password === VALID_PASSWORD) {
-			Cookies.set('token', 'fake-jwt-token', { expires: 7 });
-      router.push('/profile')
+      Cookies.set('token', 'fake-jwt-token', { expires: 7 });
+      router.push('/profile');
     } else {
       setLoginError('Invalid email or password');
     }
@@ -74,29 +71,54 @@ export default function HomePage() {
   };
 
   return (
-    <div className='auth-container'>
-      <div className='auth-card'>
-        <div className='auth-logo'>
-          <img src='/icons/Logo.svg' alt='Feed' />
-          <p className='auth-title'>Start Your Journey</p>
-          <p className='auth-subtitle'>Create a free account or log in</p>
+    <div
+      className="min-h-screen flex flex-col justify-center items-center gap-8 px-4 py-5 bg-[url('/images/backgroundLogin.png')] bg-no-repeat bg-cover"
+    >
+      <div
+        className="
+          flex flex-col items-center gap-4
+          w-[535px] rounded-[32px] bg-white shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1),0_2px_4px_-1px_rgba(0,0,0,0.06)]
+          px-16 py-16
+          max-[991px]:w-[90%] max-[991px]:max-w-[500px] max-[991px]:px-8 max-[991px]:py-12
+          max-[640px]:w-[95%] max-[640px]:max-w-[90%] max-[640px]:px-6 max-[640px]:py-8 max-[640px]:rounded-[24px]
+        "
+      >
+        {/* logo / title */}
+        <div className='flex flex-col items-center pb-4'>
+          <img src='/icons/Logo.svg' alt='Feed' className='mb-4 h-12' />
+          <p className='text-[#1E293B] text-[32px] font-semibold leading-none mb-0'>
+            Start Your Journey
+          </p>
+          <p className='m-0 text-[#475569] text-[16px] leading-[26px]'>
+            Create a free account or log in
+          </p>
         </div>
 
-        <form className='auth-form' onSubmit={handleSubmit} noValidate>
+        <form
+          onSubmit={handleSubmit}
+          noValidate
+          className='flex flex-col items-stretch w-full'
+        >
           {/* EMAIL */}
-          <div className='input-field-wrapper'>
+          <div className='mb-2'>
             <input
               type='email'
               placeholder='Email Address'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`input-field ${errors.email ? 'invalid' : ''}`}
+              className={`w-full px-6 py-4 rounded-[24px] border text-[#64748b] bg-white text-sm outline-none transition
+                ${errors.email ? 'border-[#EA081B] shadow-[0_0_0_4px_#FFF5F5]' : 'border-[#CBD5E1] focus:border-[#475569] focus:shadow-[0_0_0_4px_#E2E8F0]'}
+              `}
             />
+            {errors.email && (
+              <p className='text-[#475569] text-[12px] leading-5 mt-0 mb-4'>
+                {errors.email}
+              </p>
+            )}
           </div>
-          {errors.email && <p className='error-text'>{errors.email}</p>}
 
           {/* PASSWORD */}
-          <div className={`password-wrapper ${showPassword ? 'show' : ''}`}>
+          <div className='relative mb-2'>
             <input
               type={showPassword ? 'text' : 'password'}
               placeholder='Password'
@@ -107,87 +129,107 @@ export default function HomePage() {
               }}
               onFocus={() => setPasswordFocused(true)}
               onBlur={() => setPasswordFocused(false)}
-              className={`input-field ${errors.password ? 'invalid' : ''}`}
+              className={`w-full px-6 py-4 rounded-[24px] border text-[#64748b] bg-white text-sm outline-none transition
+                ${errors.password ? 'border-[#EA081B] shadow-[0_0_0_4px_#FFF5F5]' : 'border-[#CBD5E1] focus:border-[#475569] focus:shadow-[0_0_0_4px_#E2E8F0]'}
+              `}
             />
-            <span
-              className='toggle-password'
-              onClick={() => setShowPassword((prev) => !prev)}
-            ></span>
 
-            {/* PASSWORD REQUIREMENTS */}
+            {/* toggle password icon */}
+            <span
+              onClick={() => setShowPassword((prev) => !prev)}
+              className={`
+                absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 cursor-pointer opacity-70 hover:opacity-100
+                bg-no-repeat bg-contain
+                ${showPassword ? "bg-[url('/icons/eye-slash.svg')]" : "bg-[url('/icons/eye.svg')]"}
+              `}
+            />
+
+            {/* PASSWORD RULES */}
             <div
-              className={`password-rules ${passwordFocused ? 'visible' : ''}`}
+              className={`
+                absolute left-0 right-0 mt-2 bg-white border border-[#CBD5E1] rounded-[24px] px-6 py-4 text-[14px] leading-[22px] text-[#475569]
+                shadow-[0_25px_50px_rgba(0,0,0,0.05)]
+                transition-all duration-200
+                ${passwordFocused ? 'opacity-100 max-h-[250px] translate-y-2' : 'opacity-0 max-h-0 overflow-hidden'}
+              `}
             >
-              <p className='password-rules-title'>Password must include:</p>
-              <ul>
-                <li
-                  className={`password-rules-item ${
-                    requirements.length ? 'valid' : 'invalid'
-                  }`}
-                >
-                  <span className="password-rules-icon"></span> 6–12 Characters
+              <p className='text-[12px] leading-5 mb-2'>Password must include:</p>
+              <ul className='list-none p-0 m-0 space-y-1'>
+                <li className='flex items-center gap-2 text-sm'>
+                  <span
+                    className={`w-5 h-5 flex-shrink-0 bg-no-repeat bg-contain
+                      ${requirements.length ? "bg-[url('/icons/check-green.svg')]" : "bg-[url('/icons/close-red.svg')]"}
+                    `}
+                  />
+                  6–12 Characters
                 </li>
-                <li
-                  className={`password-rules-item ${
-                    requirements.capital ? 'valid' : 'invalid'
-                  }`}
-                >
-                  <span className="password-rules-icon"></span> At least one capital letter
+                <li className='flex items-center gap-2 text-sm'>
+                  <span
+                    className={`w-5 h-5 flex-shrink-0 bg-no-repeat bg-contain
+                      ${requirements.capital ? "bg-[url('/icons/check-green.svg')]" : "bg-[url('/icons/close-red.svg')]"}
+                    `}
+                  />
+                  At least one capital letter
                 </li>
-                <li
-                  className={`password-rules-item ${
-                    requirements.number ? 'valid' : 'invalid'
-                  }`}
-                >
-                  <span className="password-rules-icon"></span> At least one number
+                <li className='flex items-center gap-2 text-sm'>
+                  <span
+                    className={`w-5 h-5 flex-shrink-0 bg-no-repeat bg-contain
+                      ${requirements.number ? "bg-[url('/icons/check-green.svg')]" : "bg-[url('/icons/close-red.svg')]"}
+                    `}
+                  />
+                  At least one number
                 </li>
-                <li
-                  className={`password-rules-item ${
-                    requirements.spaces ? 'valid' : 'invalid'
-                  }`}
-                >
-                  <span className="password-rules-icon"></span> No spaces
+                <li className='flex items-center gap-2 text-sm'>
+                  <span
+                    className={`w-5 h-5 flex-shrink-0 bg-no-repeat bg-contain
+                      ${requirements.spaces ? "bg-[url('/icons/check-green.svg')]" : "bg-[url('/icons/close-red.svg')]"}
+                    `}
+                  />
+                  No spaces
                 </li>
               </ul>
             </div>
           </div>
 
-          {loginError && <p className='error-text'>{loginError}</p>}
+          {loginError && (
+            <p className='text-[#475569] text-[12px] leading-5 mt-0 mb-4'>
+              {loginError}
+            </p>
+          )}
 
-          <div className='continue-button'>
-            <Button color='primary' type='submit'>
+          {/* continue button */}
+          <div className='mt-5 mb-4'>
+            <Button color='primary' className='w-full h-[54px] max-[640px]:h-12 text-[15px]'>
               Continue
             </Button>
           </div>
 
-          <div className='divider'>
-            <span>or</span>
+          {/* divider */}
+          <div className='flex items-center gap-2 my-4'>
+            <div className='flex-1 h-px bg-[#CBD5E1]' />
+            <span className='text-[#475569] text-[14px] text-center'>or</span>
+            <div className='flex-1 h-px bg-[#CBD5E1]' />
           </div>
 
+          {/* google */}
           <button
-            className='google-button'
-            onClick={handleGoogleSignIn}
             type='button'
+            onClick={handleGoogleSignIn}
+            className='flex items-center justify-center gap-2 w-full py-4 px-6 rounded-[24px] border border-[#CBD5E1] bg-white text-[#1E293B] text-[16px] font-medium hover:bg-[#F8FAFC] hover:border-[#94A3B8] transition'
           >
-            <div className='google-icon'>
-            {/* Google Icon */}
-            <svg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
-                <path opacity='0.987' fillRule='evenodd' clipRule='evenodd' d='M10.8134 2.09113C11.9009 1.96962 12.5444 1.96962 13.7129 2.09113C15.7813 2.39727 17.6987 3.35335 19.1879 4.82113C18.1816 5.77233 17.1885 6.73742 16.2089 7.71612C14.3329 6.12612 12.2389 5.75913 9.92687 6.61513C8.23087 7.39513 7.04987 8.65913 6.38387 10.4071C5.29554 9.59687 4.22137 8.76774 3.16188 7.92012C3.08824 7.88137 3.00415 7.86718 2.92188 7.87962C4.60487 4.63462 7.23487 2.70462 10.8119 2.08962' fill='#F44336'/>
-                <path opacity='0.997' fillRule='evenodd' clipRule='evenodd' d='M2.91938 7.87978C3.00438 7.86678 3.08488 7.88028 3.16088 7.92028C4.22038 8.7679 5.29454 9.59703 6.38288 10.4073C6.21162 11.0884 6.10366 11.7838 6.06038 12.4848C6.09738 13.1628 6.20488 13.8283 6.38288 14.4813L3.00038 17.1738C1.52738 14.0958 1.50038 10.9978 2.91938 7.87978Z' fill='#FFC107'/>
-                <path opacity='0.999' fillRule='evenodd' clipRule='evenodd' d='M19.0281 20.4341C17.9749 19.5053 16.8723 18.634 15.7251 17.8241C16.8751 17.0121 17.5731 15.8981 17.8191 14.4821H12.1836V10.5686C15.4336 10.5416 18.6821 10.5691 21.9291 10.6511C22.5451 13.9961 21.8336 17.0121 19.7946 19.6991C19.5521 19.9569 19.2953 20.2022 19.0281 20.4341Z' fill='#448AFF'/>
-                <path opacity='0.993' fillRule='evenodd' clipRule='evenodd' d='M6.3825 14.4824C7.6125 17.5394 9.8675 18.9664 13.1475 18.7634C14.0682 18.6568 14.951 18.3352 15.7245 17.8244C16.8725 18.6364 17.9735 19.5064 19.0275 20.4344C17.3575 21.9351 15.2282 22.8255 12.987 22.9604C12.4778 23.0011 11.9662 23.0011 11.457 22.9604C7.639 22.5104 4.82 20.5814 3 17.1734L6.3825 14.4824Z' fill='#43A047'/>
-            </svg>
-            </div>
+            <span className='w-6 h-6'>
+              <img src='/icons/google.svg' alt='Google' className='w-6 h-6' />
+            </span>
             <span>Continue with Google</span>
           </button>
 
-          <div className='terms-text'>
+          <div className='text-center text-[#64748B] text-[14px] leading-[22px] mt-4'>
             By creating an account, you agree to our{' '}
-            <a href='/terms' className='terms-link'>
+            <a href='/terms' className='underline text-[#64748B] hover:text-[#475569]'>
               Terms of Service
             </a>{' '}
             and have read and understood the{' '}
-            <a href='/privacy' className='terms-link'>
+            <a href='/privacy' className='underline text-[#64748B] hover:text-[#475569]'>
               Privacy Policy
             </a>.
           </div>
