@@ -88,3 +88,15 @@ body {
 .page-back-link > h2 {
   margin: 0;
 }
+
+.swiper-next {
+  background-image: url('/icons/small-arrow-right.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.swiper-prev {
+  background-image: url('/icons/small-arrow-right.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotate(180deg);
+}
